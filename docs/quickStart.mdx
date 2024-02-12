@@ -1,0 +1,49 @@
+---
+sidebar_position: 0
+---
+
+import BashTabs from '@site/src/components/generic/bashTabs'
+// import Flow from '@site/src/components/generic/flow'
+
+# Quick Start 🚀
+
+### Step 1: Install [Node JS](https://nodejs.org/en/download/)
+Before you install Formulaik, make sure to download and install Node.js (version 18.x or higher), a JavaScript runtime.
+When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+
+### Step 2: Create a new Formulaik app 
+
+```bash
+npx formulaik new --appId "mycli"
+```
+
+### Step 3: Add a command
+Create a folder name <i>mycommand</i> in src/commands
+Add a file named <i>index.js</i>
+Declare a new command:
+
+```js
+export default ({
+  _formulaikType: 'command',
+  position: 1,
+  name: 'mycommand',
+  description: `My command`,
+  options: [
+  ],
+  example: "$0 mycommand",
+  handler: async () => {
+    console.log('Hello world')
+  }
+})
+```
+
+### Step 4: Link the CLI
+<BashTabs yarn={`yarn link`} />
+
+### Step 5: Use the CLI
+At this point the local Formulaik app is linked and can be used throughout the system
+```bash
+mycli mycommand -h
+```
+
+Learn more with [tutorials](./tutorials/overview.mdx)

@@ -1,0 +1,28 @@
+---
+sidebar_position: 2
+---
+
+# Components
+
+### Commands
+Commands folders are a direct representation of the arborescence of commands the end user will see.
+
+### Questions
+A CLI will certainly make use of inquiries to the user. We call them questions, and they are built with certain requirements in mind:
+- Questions can be declared in a conventional way in the src/questions folder
+- Any command can declare the questions it will use, by doing so Formulaik will automatically extract the cli parameters from those questions and inject them in the help view.
+- When a question is declared in a command, it inherits the question that is declared project wide in the src/questions folder. By doing so you can simply declare a command question by giving its id.
+- Any extension can declare its questions as well
+
+[Guides](../guides/questions/create.mdx) <br />
+[Reference](../reference/question.mdx)
+
+### Validators
+As they name imply they validate input
+
+### Transformers
+Just like a docker image is made to be### Validators
+As they name imply they validate input
+
+### Side effects
+
