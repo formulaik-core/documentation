@@ -39,7 +39,8 @@ export default () => {
             {`${siteConfig.title}`} <br /> <i className='text-gray-600 dark:text-gray-400'>for React</i>
           </h1>
           <p className={`text-lg `}>
-          An open source opinionated <b>Node JS</b> CLI framework to help you build modern CLIs. Get ready to change the way you code your CLI! 🚀
+          An open source framework for building modern forms.
+          Formulaik extends Formik with a JSON based declarative approach 🚀
           </p>
           <div className={`
             grid 

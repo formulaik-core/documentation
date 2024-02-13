@@ -2,9 +2,9 @@ import React from 'react';
 
 export default [
   {
-    title: 'Commands ready',
+    title: 'Declarative',
     // Svg: require('@site/static/img/noun-build-3738502.svg').default,
-    Svg: require('@site/static/img/noun-command-3158391.svg').default,    
+    Svg: require('@site/static/img/noun-input-1678871.svg').default,    
     description: (
       <>
         Formulaik makes it easy to add a command by creating a folder and adding its subcommands. 
@@ -13,8 +13,8 @@ export default [
     url: '/docs/concepts'
   },
   {
-    title: 'Questions driven',
-    Svg: require('@site/static/img/noun-question-106348.svg').default,
+    title: 'Input libraries driven',
+    Svg: require('@site/static/img/noun-photo-5578498.svg').default,
     // Svg: require('@site/static/img/noun-question-3323941.svg').default,
     description: (
       <>
