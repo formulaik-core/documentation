@@ -4,48 +4,11 @@ sidebar_position: 2
 
 # Terms, definitions and components
 
-## Commands
-Commands folders are a direct representation of the arborescence of commands the end user will see.
+## Inputs
+Inputs are reusable components that follow the ```Formulaik input``` api.
 
-## Questions
-A CLI will certainly make use of inquiries to the user. We call them questions, and they are built with certain requirements in mind:
-- Questions can be declared in a conventional way in the src/questions folder
-- Any command can declare the questions it will use, by doing so Formulaik will automatically extract the cli parameters from those questions and inject them in the help view.
-- When a question is declared in a command, it inherits the question that is declared project wide in the src/questions folder. By doing so you can simply declare a command question by giving its id.
-- Any extension can declare its questions as well
+## Input Library
+An input librariy is a function that provides an input based on a unique key.
 
-[Guides](../guides/questions/structure.mdx) <br />
-[Reference](../reference/question.mdx)
-
-### Validators
-Validators are used to check user's input for a question.
-- Validators can be declared separately in the src/validators folder
-- They can also be declared inline in reference to a question
-- Any extension can declare its validators as well
-
-[Guides](../guides/questions/structure.mdx) <br />
-[Reference](../reference/question.mdx)
-
-### Transformers
-Transformers are used to format a value before or after a user's input. They can also be used to format the data displayed to a user without having an actual effect on the final input.
-- Transformers can be declared separately in the src/validators folder
-- They can also be declared inline in reference to a question
-- Any extension can declare its transformers as well
-
-[Guides](../guides/questions/structure.mdx) <br />
-[Reference](../reference/question.mdx)
-
-### Side effects
-Side effects are used to format a value before or after a user's input. They can also be used to format the data displayed to a user without having an actual effect on the final input.
-- Side effects can be declared separately in the src/validators folder
-- They can also be declared inline in reference to a question
-- Any extension can declare its side effects as well
-
-[Guides](../guides/questions/structure.mdx) <br />
-[Reference](../reference/question.mdx)
-
-
-## Extensions
-
-Formulaik can be extended easily via compabtible Formulaik extensions.
-A Formulaik extension is a either a separated JS module or a folder in any *src/extensions* Formulaik app folder.
+## Validation schema
+A validation schema is an object that tells whether an input value is valid or not.
