@@ -6,11 +6,10 @@ sidebar_position: 0
 
 ```bash
 ├── index.js
-├── questions
+├── componentA
 ├── ├── ...
-├── validators
+├── componentB
 ├── ├── ...
-├── transformers
 └── ├── ...
 ```
 
@@ -18,34 +17,8 @@ sidebar_position: 0
 
 ```js
 export default ({
-  id: "<%= uniqueId %>",
-  description: "<%= description %>",
-  register: async ({ toolbox }) => {
-    // At this point the Formulaik object is available and can be manipulated (cautiously)
-  }
-})
+  type
+}) => {
+  return ...
+}
 ```
-
-
-
-## Use an extension
-
-### Declare / import
-
-For inline extensions no need to explicitely import.
-For standalone modules, 
-1. Declare the module in package.json
-2. Declare the module in formulaik.config.js
-
-```js
-export default ({
-  __formulaikApiVersion: "1.0.0",
-  name: "<%= name %>",
-  usage: "<%= usage %>",  
-  extensions: [
-    "<%= moduleId %>"
-  ]
-})
-```
-
-Then check the extension documentation.

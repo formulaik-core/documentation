@@ -53,7 +53,7 @@ export default () => {
                 button--primary 
                 button--lg`}
               to="/docs/quickStart">
-              Quick Start
+              Quick start 🚀
             </Link>
             <Link
               className="button button--secondary button--lg"

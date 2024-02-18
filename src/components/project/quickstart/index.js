@@ -9,7 +9,7 @@ export default ({hideTitle = false}) => <div class={`
           align-middle                
           max-w-5xl
         `}>
-      <h2 className='text-4xl'>{`Quick start`}</h2>
+      <h2 className='text-4xl'>{`Quick start 🚀`}</h2>
       <Actual />
     </div>
   </div>

@@ -14,7 +14,7 @@ Formulaik documentation source code for [https://docs.formulaik.app](https://doc
 **Formulaik** is a Node JS CLI framework built on top of yargs.
 
 Main features:
-- Quick start and Plug & Play Node JS framework
+- Quick start 🚀 and Plug & Play Node JS framework
 - Tailored for options, transformers, validators, etc
 
 ## License
