@@ -6,9 +6,11 @@ sidebar_position: 0
 
 ![logo](/img/icon_xs.svg)
 
-## Motivation Why another framework?
-We used yeoman as our CLI framework in the past. Yeoman quickly became hard to maintain. 
-#TODO
+## Motivation
+Forms are hard. They are tough to get right and maintain. We usually end up with dozens of form artefacts spread across our projects, from inputs, styling, validation, submission logic, user input behavior, etc.
+We used Formik as our main form management library, it is a great way of writing form inputs and manage their lifecycle. 
+But what if we want to reuse the whole reasonning that goes with creating a one, fully functional form, to other views in our app?
+The answer to that question if what led to the creation of **Formulaik**.
 
 ## Principles
 ### Convention over configuration
@@ -18,6 +20,14 @@ We used yeoman as our CLI framework in the past. Yeoman quickly became hard to m
 <a href='https://en.wikipedia.org/wiki/Convention_over_configuration'>
 Wikipedia
 </a>
+
+### Break the Form into Small Reusable Components
+*One of the fundamental principles of React is the concept of componentization. Apply this principle to your forms by breaking them down into small, reusable components. Each component should encapsulate a specific piece of the form’s functionality. This approach makes your code more modular and easier to maintain, and when combined with TypeScript, it enables strong type checking for each component.*
+[Read more](https://orizens.com/blog/best_practices_for_developing_complex_form-based_apps_with_react_hook_form_and_typescript_support/)
+
+### Standardize Input Interfaces: “value” and “onChange”
+*To ensure consistency and compatibility, follow the standard input interface of providing “value” and “onChange” handlers for your form inputs. This approach allows React Hook Form to seamlessly integrate with your components while providing TypeScript with the necessary information to perform type checking.*
+[Read more](https://orizens.com/blog/best_practices_for_developing_complex_form-based_apps_with_react_hook_form_and_typescript_support/)
 
 
 ### Don't repeat yourself (DRY)
@@ -49,17 +59,11 @@ By respecting these restrictions, functional programming aims to write code that
 
 ### Other influences
 - <a href='https://blog.ploeh.dk/2021/06/14/new-book-code-that-fits-in-your-head/'><i>Code That Fits in Your Head</i></a> book by Mark Seemann
-- Gluegun
-- Yargs
+- Formik
 
 
 ## Should you use Formulaik?
 
 Formulaik is likely a good fit for you if
-- You want to quickly build a CLI for your project
-- You want to reuse an option over different commands without copying it over and over
-- You want to use conventionned validators and transformers
-- You want to use validators, transformers and side effects programmatically
-
-{/* ![logo](/art/buret.png)
-<small>Simon Buret, The blessings, 2022</small> */}
+- You want to quickly build a form for your project
+- You want to reuse an input over different forms without copying it over and over

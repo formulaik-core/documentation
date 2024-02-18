@@ -2,16 +2,9 @@ import React from 'react'
 import CodeBlock from '@theme/CodeBlock'
 import BashTabs from '@site/src/components/generic/bashTabs'
 
-export default () => <div class={`                     
-        px-6                
-        flex 
-        justify-center`}>
-    <div class={`          
-          justify-center      
-          align-middle                
-          max-w-5xl
+export default ({}) => <div class={`                     
         `}>
-      <h2 className='text-4xl'>{`Quick start`}</h2>
+    
           <p className={`text-lg font-bold`}>
             1. Install formulaik, yup for validation and a component library
           </p>
@@ -88,4 +81,3 @@ import * as Yup from 'yup'`}
       </CodeBlock>        
       </p>
     </div>
-  </div>

@@ -1,0 +1,33 @@
+---
+sidebar_position: 2
+---
+
+# Create a components library
+
+```jsx
+import Formulaik from '@formulaik/react'
+import FormulaikLocal from 'components/shared/formulaik-library'
+import * as Yup from 'yup'
+```
+
+In the ```components/shared/formulaik-library``` folder create a ``ìndex.js``` file:
+
+```js
+import input from './input'
+import textArea from './textArea'
+import submit from './submit'
+
+export default (props) => {
+    const { type } = props
+    switch (type) {
+        case 'input':
+            return input                
+        case 'textArea':
+            return textArea                
+        case 'submit':
+            return submit                
+        default:
+            return null;
+    }
+}
+```
