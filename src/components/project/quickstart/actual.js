@@ -4,14 +4,13 @@ import BashTabs from '@site/src/components/generic/bashTabs'
 
 export default ({}) => <div class={`                     
         `}>
-    
           <p className={`text-lg font-bold`}>
             1. Install formulaik, yup for validation and a component library
           </p>
           <BashTabs npm={`npm install @formulaik/react`} />
           <p>
-            <CodeBlock language="jsx">{`
-import Formulaik from '@formulaik/react'
+            <CodeBlock language="jsx">
+{`import Formulaik from '@formulaik/react'
 import FormulaikMui from '@formulaik-community/formulaik-mui-react'
 import * as Yup from 'yup'`}
             </CodeBlock>

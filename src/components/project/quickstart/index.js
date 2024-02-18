@@ -7,7 +7,8 @@ export default ({hideTitle = false}) => <div class={`
     <div class={`          
           justify-center      
           align-middle                
-          max-w-5xl
+          md:max-w-5xl
+          max-w-md
         `}>
       <h2 className='text-4xl'>{`Quick start 🚀`}</h2>
       <Actual />
