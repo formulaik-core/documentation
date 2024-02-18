@@ -13,7 +13,7 @@ justify-center
           max-w-4xl
         `}>
           <h2 className='text-4xl'>
-            {`What do we want? 🤖`} <i></i>
+            {`What do we want? `} <i></i>
           </h2>         
           <p className='text-lg'>
             Ok, what would the perfect CLI generator look like ? 
@@ -23,10 +23,12 @@ justify-center
             text-lg 
             space-y-2
             `}>            
-            <li className=''>Easy to read</li>
-            <li className=''>Easy to add commands</li>
-            <li className=''>Programmatically add steps, inputs, transformers, etc</li>
-            <li className=''>Extensible</li>            
+              <li className=''>Easy to read</li>
+              <li className=''>Easy to debug</li>
+              <li className=''>Separate declaration from implementation</li>
+              <li className=''>Reuse components in a project</li>            
+              <li className=''>Reuse component libraries across projects</li>            
+              <li className=''>Have a unique multi-platform specification and behavior of our forms</li>            
             </ul>
           {!noLink && <p>
             <Link

@@ -5,9 +5,9 @@ import Framework from '@site/src/components/project/framework'
 import HomePageHeader from '../components/project/homePageHeader'
 import Sample from '../components/project/sample'
 import HomepageFeatures2 from '../components/project/homepageFeatures2'
-import Pollination from '../components/project/pollination'
+// import Pollination from '../components/project/pollination'
 import Manifest from '../components/project/manifest'
-import Questions from '../components/project/questions'
+import Decouple from '../components/project/decouple'
 
 export default () => {
   const { siteConfig } = useDocusaurusContext()
@@ -19,9 +19,9 @@ export default () => {
       <main className='pb-16'>        
         <Framework />
         <Sample />
-        <Questions />
+        <Decouple />
         <HomepageFeatures2 />        
-        <Pollination />  
+        {/* <Pollination />   */}
         <Manifest  align={'left'}/>         
       </main>
     </Layout>
