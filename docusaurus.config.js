@@ -80,7 +80,8 @@ const config = {
   themes: [
     '@docusaurus/theme-mermaid',
     "docusaurus-theme-openapi-docs",
-    "docusaurus-json-schema-plugin" //https://jy95.github.io/docusaurus-json-schema-plugin/docs/quick-start
+    "docusaurus-json-schema-plugin", //https://jy95.github.io/docusaurus-json-schema-plugin/docs/quick-start,
+    '@docusaurus/theme-live-codeblock'
   ],
   
   // Even if you don't use internalization, you can use this field to set useful
@@ -104,7 +105,7 @@ const config = {
           editUrl:
             'https://github.com/formulaik-core/generator-formulaik/tree/main/packages/create-docusaurus/templates/shared/',
           // docLayoutComponent: "@theme/DocPage",
-          // docItemComponent: "@theme/ApiItem" // derived from docusaurus-theme-openapi-docs
+          // docItemComponent: "@theme/ApiItem" // derived from docusaurus-theme-openapi-docs,
         },
         blog: {
           showReadingTime: true,

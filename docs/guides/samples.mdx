@@ -1,10 +1,12 @@
 import Collapse from '@site/src/components/generic/collapse';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Samples
 
 ### Verify email
 
-```jsx
+```jsx live
 import Formulaik from '@formulaik/react'
 import FormulaikMui from '@formulaik-community/formulaik-mui-react'
 import * as Yup from 'yup'
@@ -49,5 +51,28 @@ export default (props) => {
       inputs={inputs}
       onSubmit={onSubmit}
       error={error} />
+}
+```
+
+```jsx live
+function Clock(props) {
+  const [date, setDate] = useState(new Date());
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+
+    return function cleanup() {
+      clearInterval(timerID);
+    };
+  });
+
+  function tick() {
+    setDate(new Date());
+  }
+
+  return (
+    <div>
+      <h2>It is {date.toLocaleTimeString()}.</h2>
+    </div>
+  );
 }
 ```

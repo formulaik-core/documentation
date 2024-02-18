@@ -20,9 +20,12 @@
     "@docusaurus/core": "^2.4.3",
     "@docusaurus/plugin-ideal-image": "^3.1.1",
     "@docusaurus/preset-classic": "^2.4.3",
+    "@docusaurus/theme-live-codeblock": "^2",
     "@docusaurus/theme-mermaid": "^2.4.3",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@formulaik-community/formulaik-mui-react": "^1.0.3",
+    "@formulaik/react": "^1.1.1",
     "@mdx-js/react": "^1.6.22",
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.10",
@@ -44,7 +47,8 @@
     "react-folder-tree": "^5.1.1",
     "react-helmet": "^6.1.0",
     "reactflow": "^11.9.4",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.2.7",
+    "yup": "^1.3.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^2.4.3",
