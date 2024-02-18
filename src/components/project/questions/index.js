@@ -42,17 +42,21 @@ export default () => {
           <p className={`text-lg `}>
             Every command can be given questions with powerful side effects, transformers and validators. Furthermore Formulaik automatically extracts options from questions to build the CLI helper.
           </p>
+          <p className={`max-w-sm m-auto pb-4`}>
+            <i>“Enlightenment simply means that you've run out of questions, and that the answers don't matter anymore.”</i>
+            <br />Frederick Lenz
+          </p>          
           <p>
             <Link
               className="button button--secondary button--md"
-              to="/docs/concepts/motivation">
-              Learn more about Formulaik motivation
+              to="/docs/guides/questions/structure">
+              Learn more about Formulaik questions
             </Link>
           </p>
           {/* <div className={``}>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/concepts/motivation">
+              to="/docs/concepts/philosophy">
               Documentation
             </Link>
           </div> */}

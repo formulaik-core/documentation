@@ -1,0 +1,31 @@
+---
+sidebar_position: 1
+---
+
+# $ formulaik app new
+
+## Create a new app
+Creates a new formulaik app and installs dependencies.
+```bash
+formulaik app new
+```
+
+### Options
+```bash
+  -n, --appName              App name                                                      [string] [default: "MyAppName"]
+      --appDescription       App description                                          [string] [default: "A Formulaik app"]      
+  -i, --installDependencies  Install dependencies                                                [boolean] [default: true]
+  -l, --license              License                                                             [string] [default: "MIT"]
+  -p, --packageManager       Package manager ('npm', 'yarn' or 'pnpm')                           [string] [default: "npm"]
+  -g, --gitInit              Initialize a git repository                                         [boolean] [default: true]
+  -d, --destination          Project destination                                                                 [string]      
+```
+### Example
+```bash
+formulaik app new --appName='MyApp'
+```
+
+### Help
+```bash
+formulaik app new -h
+```

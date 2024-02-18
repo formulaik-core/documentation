@@ -45,14 +45,14 @@ export default () => {
           <p>
             <Link
               className="button button--secondary button--md"
-              to="/docs/concepts/motivation">
-              Learn more about Formulaik motivation
+              to="/docs/concepts/philosophy">
+              Learn more about Formulaik philosophy
             </Link>
           </p>
           {/* <div className={``}>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/concepts/motivation">
+              to="/docs/concepts/philosophy">
               Documentation
             </Link>
           </div> */}

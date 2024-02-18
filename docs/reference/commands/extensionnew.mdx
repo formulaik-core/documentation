@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+---
+
+# $ formulaik extension new
+
+## Create a new extension
+
+```bash
+formulaik extension new
+```
+
+### Options
+```bash
+      --extensionId              Extension ID                                                                            [string]
+      --extensionDescription     Extension description                                                                   [string]
+      -d, --destination          Project destination                                                                     [string]
+      -p, --packageManager       Package manager ('npm', 'yarn' or 'pnpm')                              [string] [default: "npm"]
+      -i, --installDependencies  Install dependencies                                                   [boolean] [default: true]
+      -l, --license              License                                                                [string] [default: "MIT"]
+      -g, --gitInit              Initialize a git repository                                            [boolean] [default: true]
+      -p, --releaseType          Continuous release provider                                           [string] [default: "none"]                                                               [string]      
+```
+### Example
+```bash
+formulaik extension new --extensionId='mycli'
+```
+
+### Help
+```bash
+formulaik extension new -h
+```

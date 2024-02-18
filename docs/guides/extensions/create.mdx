@@ -1,0 +1,30 @@
+---
+sidebar_position: 2
+---
+# Create
+
+- An extension needs to be registered through its index.js > register method
+- An extension can declare questions, validators and transformers the same way a Formulaik app does
+
+
+## Create an extension
+
+### Standalone extension project
+This command creates a standalone npm module that can be imported in a Formulaik app:
+
+```bash
+formulaik extension new -h
+```
+The module will have this structure:
+```bash
+├── src
+├── ├── ... (extension content)
+└── package.json
+```
+
+
+### Inline extension
+This command creates an extension content in the *extensions* folder of a Formulaik app:
+```bash
+formulaik extension add -h
+```

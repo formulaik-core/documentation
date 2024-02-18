@@ -1,0 +1,26 @@
+---
+sidebar_position: 3
+---
+
+# Store answers
+
+Formulaik can use stored answers automatically for you. Simply turn the ```storeValue``` parameter to ```true``` and ```loadFromStoreOnInit``` to ```true```.
+## Example
+We want to ask questions depending on the type of engine the user chooses. 
+The questions are available on our server with a GET request.
+
+```js
+export default ({
+  _formulaikType: 'command',
+  ...
+  questions: [
+    {
+      ...
+      storeValue: true,
+      loadValueFromStore: true,
+      storeDomain: Formulaik.env.API_HOST
+    }    
+  ],
+  ...
+})
+```

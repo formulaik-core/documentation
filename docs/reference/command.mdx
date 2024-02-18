@@ -1,236 +1,52 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-import Table from '@site/src/components/generic/reference/table'
+import JSONSchemaViewer from "@theme/JSONSchemaViewer"
 
 # Command
 
-## Path
 - A command is declared by adding a file to the src/commands folder
 - The tree of commands is automatically generated following the folders recursively
 - Any file within a command folder is a subcommand of the command declared in the index.js file of said command
 
 ## Arguments
 
-<Table    
-    types = {{
-        rootPath: '',
-        items: [{
-            id: "transformer",
-            path: "transformer",
-            name: "Transformer",
-            description: "A combination of display, in and out transformers to apply to an input or value."
-        }]
-    }}
-    data={{
-        header: {
-            columns: [
-                {
-                    id: "parameter",
-                    label:"Parameter", 
-                },
-                {
-                    id: "type",
-                    label:"Type", 
-                },
-                {
-                    id: "description",
-                    label:"Description", 
-                },
-                {
-                    id: "defaultValue",
-                    label:"Default value", 
-                },
-                {
-                    id: "mandatory",
-                    label:"Mandatory", 
-                },] 
-        },
-        rows: 
-        [
-            {
-                parameter: "_formulaikType", 
-                type: "string", 
-                description: "Formulaik module type", 
-                defaultValue: "command",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            },
-            {            
-                parameter: "name", 
-                type: "string", 
-                description: "Command unique name", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: true
-                }
-            },
-            {
-                parameter: "defaultValue", 
-                type: "", 
-                description: "Default value for the option", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            },
-            {
-                parameter: "message", 
-                type: "string", 
-                description: "The message that will be displayed on the prompt", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            },
-            {
-                parameter: "type", 
-                type: "string", 
-                description: "The data type of the input.", 
-                defaultValue: "string",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            },
-            {
-                parameter: "prompType", 
-                type: "string", 
-                description: "The prompt type of the inquirer", 
-                defaultValue: "input",
-                mandatory:{
-                    type: 'boolean',
-                    value: true
-                }
-            },
-            {
-                parameter: "transformer", 
-                type: {
-                    type: 'type',
-                    value: "transformer",
-                    mode: "array"
-                }, 
-                description: "A combination of display, in and out transformers to apply to an input or value.", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            }]
+<JSONSchemaViewer schema={{
+    	"title": "Command schema",
+    	"type": "object",
+        "description": "Allows for schema to be seen",
+    	"properties": {
+    		"_formulaikType": {
+    			"type": "string",
+                "default": "command",
+                "enum":[
+                    "command",
+                ],
+    		},
+            "name": {
+    			"type": "string",
+                "description": "Unique ID"
+    		},
+            "description": {
+    			"type": "string",
+                "description": "Command description"
+    		},
+    		"questions": {
+    			"type": "array",                
+                "description":"Command questions that will be turned into CLI options"
+    		},
+            "example": {
+    			"type": "string",
+                "description": "$0 feature eject",
+    		},
+            "template": {
+    			"type": "string"
+    		},
+            "handler": {
+    			"type": "object",
+                "description":"The command handler"
+    		}
+    	},
+    	"required": ["name",]
     }} />
-
-
-## Archive
-
-<Table
-isPlain
-types = {{
-    rootPath: '',
-    items: [{
-        id: "transformer",
-        path: "transformer",
-        name: "Transformer",
-        description: "A combination of display, in and out transformers to apply to an input or value."
-    }]
-}}
- data={{
-    header: {
-        columns: [
-            {
-                id: "parameter",
-                label:"Parameter", 
-            },
-            {
-                id: "type",
-                label:"Type", 
-            },
-            {
-                id: "description",
-                label:"Description", 
-            },
-            {
-                id: "defaultValue",
-                label:"Default value", 
-            },
-            {
-                id: "mandatory",
-                label:"Mandatory", 
-            },] 
-    },
-    rows: 
-    [
-        {
-            id: "d",
-            columns: [
-                "_formulaikType", 
-                "string", 
-                "Formulaik module type", 
-                "command", 
-                {
-                    type: 'boolean',
-                    value: false
-                }]        
-        },
-        {
-            id: "d",
-            columns: [
-                "name", 
-                "string", 
-                "Designated URL or path to the source of an OpenAPI specification file or directory of multiple OpenAPI specification files.", 
-                "b", 
-                {
-                    type: 'boolean',
-                    value: true
-                }]        
-        },
-        {
-            id: "d",
-            columns: [
-                "defaultValue", 
-                "null", 
-                "Designated URL or path to the source of an OpenAPI specification file or directory of multiple OpenAPI specification files.", 
-                {
-                    type: 'element',
-                    value: () => <span className='font-bold'>{'Default value'}</span>
-                }, 
-                {
-                    type: 'boolean',
-                    value: true
-                }]        
-        },
-        {
-            id: "b",
-            columns: ["message", "string","Designated URL or path to the source of an OpenAPI specification file or directory of multiple OpenAPI specification files.", "b", false]        
-        },
-        {
-            id: "b",
-            columns: ["type", "string", "Designated URL or path to the source of an OpenAPI specification file or directory of multiple OpenAPI specification files.","b", false]        
-        },
-        {
-            id: "b",
-            columns: ["prompType", "string", "Designated URL or path to the source of an OpenAPI specification file or directory of multiple OpenAPI specification files.","b", false]        
-        },
-         {
-            id: "d",
-            columns: [
-                "transformers", 
-                {
-                    type: 'type',
-                    value: "transformer",
-                    mode: "array"
-                }, 
-                "A combination of display, in and out transformers to apply to an input or value.", 
-                "null", 
-                {
-                    type: 'boolean',
-                    value: false
-                }]        
-        },
-        ]
-}} />

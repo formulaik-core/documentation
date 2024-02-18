@@ -1,0 +1,88 @@
+
+# Samples
+
+## Questions
+
+### App name
+- With validation and alias
+
+```js
+{
+    _formulaikType: "question",
+    name: 'appName',
+    type: 'string',
+    promptType: 'input',
+    alias: 'n',
+    defaultValue: 'MyAppName',
+    message: 'App name',
+    validators: [
+        { 
+            id: 'nonempty', 
+            params: { maxParams: 12 } 
+        }
+    ]
+}
+```
+
+
+### Destination folder
+- Uses file-tree-selection
+
+```js
+{
+    _formulaikType: "question",
+    type: 'string',
+    alias: 'd',
+    message: "Choose a destination",
+    promptType: "file-tree-selection",
+    name: "destination",
+    onlyShowDir: true,
+    root: "./",
+    onlyShowValid: false,
+    enableGoUpperDirectory: true,
+    hideRoot: false,
+    hideChildrenOfValid: false,
+    hideValidationErrorMessage: true,
+    transformers: [
+        { 
+            handler: (name,) => {
+                if (!name || !name.length) {
+                    return ''
+                }
+
+                const _name = name.split(path.sep).pop()
+                return `${_name}`
+            }
+    }]
+}
+```
+
+
+### License
+- Multiple choices promptType (list)
+
+```js
+{
+    _formulaikType: "question",
+    name: 'license',
+    type: 'string',
+    promptType: 'list',
+    alias: 'l',
+    defaultValue: 'MIT',
+    message: 'License',
+    description: '',
+    subMessage: '("MIT", ...)',
+    choices: [
+        "Apache 2.0",
+        "MIT",
+        "Mozilla Public License 2.0",
+        "BSD 2-Clause (FreeBSD) License",
+        "BSD 3-Clause (FreeBSD) License",
+        "Internet Systems Consortium (ISC) License",
+        "GNU AGPL 3.0",
+    ],
+}
+```
+
+## Transformers
+

@@ -1,0 +1,118 @@
+---
+sidebar_position: 2
+---
+
+import JSONSchemaViewer from "@theme/JSONSchemaViewer"
+
+# Formulaik
+
+- Formulaik is globally available
+
+## Formulaik.payload
+
+- ```Formulaik.payload``` gives access to the current payload.
+- Can be read and written 
+
+**Example**
+```js
+Formulaik.payload.destination = `${Formulaik.payload.appPath}/features/${Formulaik.payload.featureId}`
+```
+
+
+## Formulaik.prompt
+
+- ```Formulaik.prompt``` gives access to the prompting functions.
+- Can be called 
+
+### Formulaik.prompt.ask
+- Ask a question to the user
+- Can be either a single question (object) or an array of questions
+- Async function
+- Can be called
+
+**Example**
+```js
+await Formulaik.prompt.ask([
+    {
+        name: 'featureId',
+    },
+])
+```
+
+## Formulaik.env
+
+- ```Formulaik.env``` conveninetly gives the current environment values.
+- Can be called 
+- env files: ```.env``` for production and ```.env.development```for local development.
+
+
+## Formulaik.template
+
+- ```Formulaik.template``` gives access to the template engine.
+- Can be called
+
+**Example**
+```js
+const data = await Formulaik.template.render({ template: ``, data: {myVar: "value"} })
+```
+
+## Formulaik.spawn
+
+- Spawns a cli command.
+- Can be called
+
+*Example*
+```js
+const options = {
+    cwd: destination
+}
+await toolbox.spawn('git', ['init', '--quiet', '--initial-branch=main'], options)
+```
+
+## Formulaik.ui
+
+- Namespace for drawing custom elements on the screen
+- Can be called
+
+### Formulaik.ui.drawSectionHeader
+- Draws header text 
+
+<JSONSchemaViewer schema={{
+    	"title": "args",
+    	"type": "object",
+        "description": "",
+    	"properties": {
+    		"title": {
+    			"type": "string",
+                "description": "Title"
+    		},
+            "subTitle": {
+    			"type": "string",
+                "description": "Subtitle"
+    		},
+            "id": {
+    			"type": "string",
+                "description": "Unique ID"
+    		},
+    		"type": {
+    			"type": "array",
+                "enum":[
+                    "h1",
+                    "h2",                    
+                    "text",                    
+                ],
+                "description":"Element type",
+                "default": "text"
+    		},           
+    	},
+    	"required": ["title"]
+    }} />
+
+*Example*
+
+```js
+Formulaik.ui.drawSectionHeader({
+    type: 'h1',
+    title: "Database configuration"
+})
+```

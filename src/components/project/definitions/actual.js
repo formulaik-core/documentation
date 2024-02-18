@@ -31,7 +31,7 @@ export default ({noLink = false,
           {!noLink && <p>
             <Link
               className="button button--secondary button--md"
-              to="/docs/concepts/motivation">
+              to="/docs/concepts/philosophy">
               All terms and definitions
             </Link>
           </p>}

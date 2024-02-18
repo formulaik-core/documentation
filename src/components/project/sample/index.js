@@ -15,10 +15,10 @@ export default () => {
         `}>
       <h2 className='text-4xl'>{`Quick start`}</h2>
       <p className={`text-lg`}>
-            1. Add Formulaik:
+            Create a Formulaik project ready to use:
           </p>
       <p className={``}>
-        <BashTabs npm={`npm install @formulaik/react`} />        
+        <BashTabs npm={`npx formulaik new`} />
       </p>
     </div>
   </div>

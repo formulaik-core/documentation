@@ -165,32 +165,38 @@ const config = {
         },
         items: [
           {
-            type: 'docsVersionDropdown',
+            type: 'doc',
+            docId: 'gettingstarted/requirements',
             position: 'left',
+            label: 'Getting started 🚀',
           },
           {
             type: 'doc',
-            docId: 'concepts/motivation',
-            position: 'right',
+            docId: 'concepts/philosophy',
+            position: 'left',
             label: 'Concepts',
           },
           {
             type: 'doc',
-            docId: 'guides/gettingstarted',
-            position: 'right',
+            docId: 'guides/overview',
+            position: 'left',
             label: 'Guides',
           },
           {
             type: 'doc',
-            docId: 'tutorials/overview',
-            position: 'right',
+            docId: 'tutorials/login',
+            position: 'left',
             label: 'Tutorials',
           },
           {
             type: 'doc',
-            docId: 'reference/overview',
-            position: 'right',
+            docId: 'reference/formulaik',
+            position: 'left',
             label: 'Reference',
+          },
+          {
+            type: 'docsVersionDropdown',
+            position: 'right',
           },
           {
             type: 'doc',

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 7
 ---
 
-import ReferenceTable from '@site/src/components/generic/reference/table'
+import JSONSchemaViewer from "@theme/JSONSchemaViewer"
 
 # Side Effect
 
@@ -11,316 +11,188 @@ import ReferenceTable from '@site/src/components/generic/reference/table'
 - A side effect can be applied following a template
 - A side effect can be applied barring conditions 
 - The side effects will be called sequentially as per their order in the array
+- <strike>Create a project wide sideEffects in the form of a _formulaik file in <b>src/validators/</b></strike>
+- <strike>Any extension can declare its validators as well</strike>
 
-Example
+
+<JSONSchemaViewer schema={{
+    	"title": "Schema",
+    	"type": "object",
+        "description": "",
+    	"properties": {
+    		"_formulaikType": {
+    			"type": "string",
+                "default": "sideeffect",
+                "enum":[
+                    "sideeffect"                    
+                ],
+    		},
+            "name": {
+    			"type": "string",
+                "description": "Unique ID"
+    		},
+            "description": {
+    			"type": "string"
+    		},
+            "position": {
+    			"type": "string",
+                "enum":[
+                    "before",
+                    "after",                    
+                ],
+                "description":"The moment the side effect is applied"
+    		},
+    		"params": {
+    			"type": "array",                
+                "description":"Conditions to verify before applying the side effect"
+    		},                        
+            "handler": {
+    			"type": "object",
+                "description":"Handler with parameters: params"
+    		},
+            "template": {
+    			"type": "string",
+                "description": "The template is a regular [ejs](https://ejs.co) template. It will compile by using Formulaik.payload as its data source."
+    		},        
+    	},
+    	"required": ["id",]
+    }} />
+
+*Example*
 ```json
 "sideEffects": [
     {
-    "position": "after",
-    "type": "payload",
-    "name": "databaseURI",
-    "template": "mongodb://root:DATABASE_PASSWORD_TO_CHANGE@localhost:<%= appDatabasePort %>/app?authSource=admin&readPreference=primary&ssl=false",
-    "conditions": [
-        {
-            "name": "appDatabaseType",
-            "operator": "=",
-            "operand": "mongodb"
-        }
-    ]
+        "position": "after",
+        "type": "payload",
+        "name": "databaseURI",
+        "template": "mongodb://root:DATABASE_PASSWORD_TO_CHANGE@localhost:<%= appDatabasePort %>/app?authSource=admin&readPreference=primary&ssl=false",
+        "conditions": [
+            {
+                "name": "appDatabaseType",
+                "operator": "=",
+                "operand": "mongodb"
+            }
+        ]
     }
 ]
 ```
 
 
-## Create a side effect
-Create a project-wide side effect in the form of a _cliNext file in <b>src/sideeffects</b>.
+## Usage
+You can use a side effect in any question.
 
-<ReferenceTable    
-    types = {{}}
-    data={{
-        header: {
-            columns: [
-                {
-                    id: "parameter",
-                    label:"Parameter", 
-                },
-                {
-                    id: "type",
-                    label:"Type", 
-                },
-                {
-                    id: "description",
-                    label:"Description", 
-                },
-                {
-                    id: "defaultValue",
-                    label:"Default value", 
-                },
-                {
-                    id: "mandatory",
-                    label:"Mandatory", 
-                },
-                {
-                    id: "acceptedValues",
-                    label:"Accepted values", 
-                },
-                {
-                    id: "example",
-                    label:"Example", 
-                },] 
-        },
-        rows: 
-        [
-            {
-                parameter: "_formulaikType", 
-                type: "string", 
-                description: "Formulaik module type", 
-                defaultValue: "transformer",
-                mandatory: {
-                    type: 'boolean',
-                    value: true
-                },
-                acceptedValues: {
-                    type: 'values',
-                    value: ['transformer']
-                },
-            },
-            {
-                parameter: "position", 
-                type: "string", 
-                description: "The type of transformer. Can be in, out or display", 
-                defaultValue: "transformer",
-                mandatory:{
-                    type: 'boolean',
-                    value: true
-                },
-                acceptedValues: {
-                    type: 'values',
-                    value: ['in', 'out', 'display']
-                },
-            },
-            {
-                parameter: "id", 
-                type: "string", 
-                description: "Transformer id", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: true
-                }
-            },
-            {            
-                parameter: "handler", 
-                type: "function", 
-                description: "The handler function.", 
-                defaultValue: "{}",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                },                
-                example: {
-                    type: 'element',
-                    value: () => <bloc>{`handler: async ({ input, }) => {
-                        return capitalizeFirstLetter(input)
-                    }`}</bloc>
-                },
-            },]
-    }} />
 
-## Use
-
-### File based
-
-**Quick configuration**
-You can pass the id of the transformer in the corresponding section of the <i>transformers</i> section.
+### <strike>Previously declared</strike>
+To use a previously declared validator, pass its id and params if needed:
 
 ```js
- sideeffects: ["mysideeffect"]
-```
-
-** Advanced **
-You can pass the id of the transformer in the corresponding section of the <i>transformers</i> section.
-
-```js
- sideeffects: [{
-    id: "mySideEffect",
-    params: {}
- }]
-```
-
-<ReferenceTable    
-    types = {{}}
-    data={{
-        header: {
-            columns: [
-                {
-                    id: "parameter",
-                    label:"Parameter", 
-                },
-                {
-                    id: "type",
-                    label:"Type", 
-                },
-                {
-                    id: "description",
-                    label:"Description", 
-                },
-                {
-                    id: "defaultValue",
-                    label:"Default value", 
-                },
-                {
-                    id: "mandatory",
-                    label:"Mandatory", 
-                },] 
-        },
-        rows: 
-        [
-            {
-                parameter: "id", 
-                type: "string", 
-                description: "Transformer id", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: true
-                }
-            },
-            {            
-                parameter: "params", 
-                type: "object", 
-                description: "Transformer payload", 
-                defaultValue: "{}",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            },]
-    }} />
-
-Example
-```js
-
+{
+    ...
+    sideEffects: [
+        {
+            id: 'mySideEffectId',
+            params: {
+                myParam1: true
+            }
+        }
+    ]
+}
 ```
 
 ### Inline
 
-<ReferenceTable    
-    types = {{}}
-    data={{
-        header: {
-            columns: [
-                {
-                    id: "parameter",
-                    label:"Parameter", 
-                },
-                {
-                    id: "type",
-                    label:"Type", 
-                },
-                {
-                    id: "description",
-                    label:"Description", 
-                },
-                {
-                    id: "defaultValue",
-                    label:"Default value", 
-                },
-                {
-                    id: "mandatory",
-                    label:"Mandatory", 
-                },] 
-        },
-        rows: 
-        [
-            {
-                parameter: "id", 
-                type: "string", 
-                description: "Transformer id", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: true
-                }
-            },
-            {            
-                parameter: "params", 
-                type: "object", 
-                description: "Transformer payload", 
-                defaultValue: "{}",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            },]
-    }} />
+#### <strike>With a handler</strike>
 
-<i>Example</i>
 
 ```js
- transformers: {
-    out: ['myOutTransformerId']
-  }
+{
+    ...
+    sideEffects: [
+        {            
+            handler: ({ input }) => {
+               ...
+            }
+        }
+    ]
+}
 ```
 
-### Template
 
-<ReferenceTable    
-    types = {{}}
-    data={{
-        header: {
-            columns: [
-                {
-                    id: "parameter",
-                    label:"Parameter", 
-                },
-                {
-                    id: "type",
-                    label:"Type", 
-                },
-                {
-                    id: "description",
-                    label:"Description", 
-                },
-                {
-                    id: "defaultValue",
-                    label:"Default value", 
-                },
-                {
-                    id: "mandatory",
-                    label:"Mandatory", 
-                },] 
-        },
-        rows: 
-        [
-            {
-                parameter: "id", 
-                type: "string", 
-                description: "Transformer id", 
-                defaultValue: "",
-                mandatory:{
-                    type: 'boolean',
-                    value: true
-                }
-            },
-            {            
-                parameter: "params", 
-                type: "object", 
-                description: "Transformer payload", 
-                defaultValue: "{}",
-                mandatory:{
-                    type: 'boolean',
-                    value: false
-                }
-            },]
-    }} />
 
-<i>Example</i>
+#### With a template
 
 ```js
-transformers: {
-    out: [{
-        template: `<%= destination %>/<%= featureId %>`
-    }]
+{
+    ...
+    sideEffects: [
+        {
+            ...,
+            template: '...<%= variable %>...'
+        }
+    ]
 }
+```
+
+The template is a regular [ejs](https://ejs.co) template. 
+It will compile by using Formulaik.payload as its data source.
+
+[ejs documentation](https://ejs.co/#docs)
+
+
+
+### Conditions
+
+<JSONSchemaViewer schema={{
+    	"title": "Schema",
+    	"type": "object",
+        "description": "",
+    	"properties": {
+    		"_formulaikType": {
+    			"type": "string",
+                "default": "condition",
+                "enum":[
+                    "condition"                    
+                ],
+    		},
+            "name": {
+    			"type": "string",
+                "description": "The name of the "
+    		},
+            "description": {
+    			"type": "string"
+    		},
+            "type": {
+                "type": "string",
+                "description": "Object type to use for comparisons",
+                "default": "payload"
+            },
+            "operator": {
+    			"type": "string",
+                "enum":[
+                    "=",
+                    ">",                    
+                    "<",                    
+                ],
+                "description":"The operator used for comparison"
+    		},
+            "operand": {
+    			"type": "string",                
+                "description":"The key to get the value from the object"
+    		},    		
+            "template": {
+    			"type": "string",
+                "description": "The template used to change the target value. It is a regular [ejs](https://ejs.co) template. It will compile by using Formulaik.payload as its data source."
+    		},        
+    	}    	
+    }} />
+
+*Example*
+```json
+    {
+        "name": "appDatabaseType",
+        "operator": "=",
+        "operand": "mongodb",
+        "template": ""
+    }
+]
 ```

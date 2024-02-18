@@ -2,7 +2,54 @@
 sidebar_position: 1
 ---
 
-import ReferenceTable from '@site/src/components/generic/reference/table'
+import JSONSchemaViewer from "@theme/JSONSchemaViewer"
 
-# Formulaik Config
+# Config
 
+- Location ```/formulaik.config.js```
+
+
+### Schema
+
+<JSONSchemaViewer schema={{
+    	"title": "Formulaik",
+    	"type": "object",
+        "description": "",
+    	"properties": {
+            "__formulaikApiVersion":{
+                "type": "string",
+                "description":"Semver value of compatible Formulaik versions."
+            },
+    		"name": {
+    			"type": "string",
+                "description":"CLI name (actual bin value)"
+    		},
+            "epilog": {
+    			"type": "string",
+                "description":"CLI epilog"
+    		},
+            "usage": {
+    			"type": "string",
+                "description": "Usage description"
+    		},
+    		"extensions": {
+    			"type": "array",                
+                "description":"Extension list"
+    		},                                   
+    	},
+        required: ['__formulaikApiVersion', 'name']
+    }} />
+
+### Example
+
+```js
+export default ({
+  __formulaikApiVersion: "1.0.0",
+  name: "@servable/cli",
+  usage: "servable <command>",
+  epilog: "Made by servable",
+  extensions: [
+    "@formulaik/chunks-extension"
+  ]
+})
+```
