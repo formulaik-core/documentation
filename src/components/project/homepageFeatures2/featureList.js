@@ -20,11 +20,11 @@ export default [
     ),
   },
   {
-    title: '...',
-    Svg: require('@site/static/img/noun-change-1069929.svg').default,
+    title: 'Formik underneath',
+    Svg: require('@site/static/img/formik.svg').default,
     description: (
       <>
-        ...
+        On React we use the powerful Formik library for rendering the inputs.
       </>
     ),
   },

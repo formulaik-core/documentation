@@ -6,6 +6,62 @@ sidebar_position: 0
 
 ![logo](/img/icon_xs.svg)
 
+<details>
+
+```jsx
+import Formulaik from '@formulaik/react'
+import FormulaikMui from '@formulaik-community/formulaik-mui-react'
+import * as Yup from 'yup'
+
+export default (props) => {
+  const onSubmit = async (values, { setSubmitting }) => {
+    try {
+      const { code, } = values
+     //
+    } catch (e) {
+      //
+    }
+
+    setSubmitting(false)
+  }
+
+  const inputs = [
+    {
+      type: 'input',
+      schema: 'code',
+      id: 'code',
+      label: 'Code',
+    },
+    {
+      type: 'submit',
+      id: 'submit',
+      value: t('Validate'),
+    },
+  ]
+
+  const initialValues = {
+
+  }
+
+  const validationSchema = Yup.object().shape({
+    code: Yup.string()
+        .max(20, 'Too Long!')
+        .required(VALIDATION_BLANK_TEXT),
+    })
+
+  return <div>    
+    <h3>Verify email</h3>                
+    <Formulaik
+      componentsLibraries={[FormulaikMui]}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      inputs={inputs}
+      onSubmit={onSubmit}
+      error={error} />
+}
+```    
+</details>
+
 ## Motivation Why another framework?
 We used yeoman as our CLI framework in the past. Yeoman quickly became hard to maintain. 
 #TODO
