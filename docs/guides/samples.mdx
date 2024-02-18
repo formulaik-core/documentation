@@ -1,88 +1,53 @@
+import Collapse from '@site/src/components/generic/collapse';
 
 # Samples
 
-## Questions
+### Verify email
 
-### App name
-- With validation and alias
+```jsx
+import Formulaik from '@formulaik/react'
+import FormulaikMui from '@formulaik-community/formulaik-mui-react'
+import * as Yup from 'yup'
 
-```js
-{
-    _formulaikType: "question",
-    name: 'appName',
-    type: 'string',
-    promptType: 'input',
-    alias: 'n',
-    defaultValue: 'MyAppName',
-    message: 'App name',
-    validators: [
-        { 
-            id: 'nonempty', 
-            params: { maxParams: 12 } 
-        }
-    ]
+export default (props) => {
+  const onSubmit = async (values, { setSubmitting }) => {    
+    const { code, } = values
+
+    setSubmitting(false)
+  }
+
+  const inputs = [
+    {
+      type: 'input',
+      schema: 'code',
+      id: 'code',
+      label: 'Code',
+    },
+    {
+      type: 'submit',
+      id: 'submit',
+      value: t('Validate'),
+    },
+  ]
+
+  const initialValues = {
+
+  }
+
+  const validationSchema = Yup.object().shape({
+    code: Yup.string()
+        .max(20, 'Too Long!')
+        .required(VALIDATION_BLANK_TEXT),
+    })
+
+  return <div>    
+    <h3>Verify email</h3>                
+    <Formulaik
+      componentsLibraries={[FormulaikMui]}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      inputs={inputs}
+      onSubmit={onSubmit}
+      error={error} />
 }
 ```
-
-
-### Destination folder
-- Uses file-tree-selection
-
-```js
-{
-    _formulaikType: "question",
-    type: 'string',
-    alias: 'd',
-    message: "Choose a destination",
-    promptType: "file-tree-selection",
-    name: "destination",
-    onlyShowDir: true,
-    root: "./",
-    onlyShowValid: false,
-    enableGoUpperDirectory: true,
-    hideRoot: false,
-    hideChildrenOfValid: false,
-    hideValidationErrorMessage: true,
-    transformers: [
-        { 
-            handler: (name,) => {
-                if (!name || !name.length) {
-                    return ''
-                }
-
-                const _name = name.split(path.sep).pop()
-                return `${_name}`
-            }
-    }]
-}
-```
-
-
-### License
-- Multiple choices promptType (list)
-
-```js
-{
-    _formulaikType: "question",
-    name: 'license',
-    type: 'string',
-    promptType: 'list',
-    alias: 'l',
-    defaultValue: 'MIT',
-    message: 'License',
-    description: '',
-    subMessage: '("MIT", ...)',
-    choices: [
-        "Apache 2.0",
-        "MIT",
-        "Mozilla Public License 2.0",
-        "BSD 2-Clause (FreeBSD) License",
-        "BSD 3-Clause (FreeBSD) License",
-        "Internet Systems Consortium (ISC) License",
-        "GNU AGPL 3.0",
-    ],
-}
-```
-
-## Transformers
-
