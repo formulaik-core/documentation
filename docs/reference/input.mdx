@@ -4,18 +4,16 @@ sidebar_position: 3
 
 import JSONSchemaViewer from "@theme/JSONSchemaViewer"
 
-# Command
+# Input
 
 - A command is declared by adding a file to the src/commands folder
 - The tree of commands is automatically generated following the folders recursively
 - Any file within a command folder is a subcommand of the command declared in the index.js file of said command
 
-## Arguments
-
 <JSONSchemaViewer schema={{
-    	"title": "Command schema",
+    	"title": "Schema",
     	"type": "object",
-        "description": "Allows for schema to be seen",
+        "description": "",
     	"properties": {
     		"_formulaikType": {
     			"type": "string",
