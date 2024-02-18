@@ -4,6 +4,7 @@ import Link from '@docusaurus/Link'
 // import LogoAnimated from '../logo/animated'
 import LogoStatic from '../logo/static/index.svg'
 
+// https://iconscout.com/free-icon/dessert-1560788
 export default () => {
   const { siteConfig } = useDocusaurusContext()
   return <div className={`             
@@ -35,10 +36,11 @@ export default () => {
           max-w-md
         `}>
           <h1 className='text-6xl'>
-            {`${siteConfig.title}`} <i className='text-gray-600 dark:text-gray-400'> framework</i>
+            {`${siteConfig.title}`} <br /> <i className='text-gray-600 dark:text-gray-400'>for React</i>
           </h1>
           <p className={`text-lg `}>
-          An open source opinionated <b>Node JS</b> CLI framework to help you build modern CLIs. Get ready to change the way you code your CLI! 🚀
+          An open source framework for building modern forms.
+          Formulaik extends Formik with a JSON based declarative approach 🚀
           </p>
           <div className={`
             grid 
@@ -50,7 +52,7 @@ export default () => {
                 button 
                 button--primary 
                 button--lg`}
-              to="/docs/quickstart">
+              to="/docs/quickStart">
               Quick Start
             </Link>
             <Link

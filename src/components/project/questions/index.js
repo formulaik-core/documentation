@@ -37,20 +37,16 @@ export default () => {
           max-w-4xl
         `}>
           <h2 className='text-4xl'>
-            {`Ask smart questions 🙋‍♀️`}
+            {`Decouple your form declaration from its implementation 🖖`}
           </h2>
           <p className={`text-lg `}>
-            Every command can be given questions with powerful side effects, transformers and validators. Furthermore Formulaik automatically extracts options from questions to build the CLI helper.
-          </p>
-          <p className={`max-w-sm m-auto pb-4`}>
-            <i>“Enlightenment simply means that you've run out of questions, and that the answers don't matter anymore.”</i>
-            <br />Frederick Lenz
+            Go from having your form inputs behavior cluttered in a React file to a clear separation of concerns between declaration via a JSON and component libraries.
           </p>          
           <p>
             <Link
               className="button button--secondary button--md"
               to="/docs/guides/questions/structure">
-              Learn more about Formulaik questions
+              Learn more about creating an input
             </Link>
           </p>
           {/* <div className={``}>
