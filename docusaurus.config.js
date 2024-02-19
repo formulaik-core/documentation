@@ -139,7 +139,17 @@ const config = {
       //     fontSize: 14
       //   },               
       // },
-
+      announcementBar: {
+        id: 'support_ukraine',
+        content:
+          `
+          <div className={""}> 
+            Formulaik is not released yet. This is a work in progress.
+          </div>`,
+        backgroundColor: '#323232',
+        textColor: '#fff',
+        isCloseable: true,
+      },
       matomo: {
         // matomoUrl: (process.env.MATOMO_URL && process.env.MATOMO_URL.length) ? process.env.MATOMO_URL : 'https://your.matomo.instance/',
         // siteId: (process.env.MATOMO_SITE_ID && process.env.MATOMO_SITE_ID.length) ? process.env.MATOMO_SITE_ID : 'ID',
