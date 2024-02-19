@@ -45,7 +45,7 @@ export default () => {
           <p>
             <Link
               className="button button--secondary button--md"
-              to="/docs/guides/questions/structure">
+              to="/docs/guides/overview">
               Learn more about creating an input
             </Link>
           </p>

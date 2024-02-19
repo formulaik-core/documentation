@@ -40,7 +40,7 @@ export default () => {
           </h1>
           <p className={`text-lg `}>
           An open source framework for building modern forms.
-          Formulaik extends Formik with a JSON based declarative approach 🚀
+          Formulaik extends Formik with a JSON based declarative approach.
           </p>
           <div className={`
             grid 

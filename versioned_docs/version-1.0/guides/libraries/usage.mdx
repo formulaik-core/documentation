@@ -1,10 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 0
 ---
 
-# Usage 
-
-## Create a components library
+# Create a components library
 
 We will put our components in a folder and return the appropriate input by calling the default function in ``ìndex.js```.
 For example we will name our folder ```components/formulaik-library```.
@@ -32,7 +30,7 @@ export default (props) => {
 ```
 
 ### Create input components
-An input component is standardized, it follows the [input interface api](../reference/input)
+An input component is standardized, it follows the [input interface api](../../reference/input.mdx)
 
 Text input: **/input/index.js*
 ```js
@@ -139,89 +137,5 @@ export default (props) => {
     {...layoutModeProps()}
     {...params}
   />
-}
-```
-
-## Build the form
-
-```jsx
-import { useState } from 'react'
-import Formulaik from '@formulaik/react'
-import FormulaikLocal from 'components/formulaik-library'
-import * as Yup from 'yup'
-
-const inputs = [
-  {
-    type: 'input',
-    schema: 'email',
-    id: 'email',
-    label: 'Email',
-    params: {
-      type: 'email',
-      placeholder: "email@domain.com"
-    }
-  },
-  {
-    type: 'inputPassword',
-    schema: 'password',
-    label: 'Password',
-    id: 'password',
-    params: {
-      type: 'password',
-      autoComplete: "current-password",
-      placeholder: "xxxx-xxxx-xxxx"
-    }
-  },
-  {
-    type: 'submit',
-    params: {
-      text: 'Continue'
-    }
-  },
-]
-
-const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Invalid email format')
-    .required("This field can't be blank"),
-  password: Yup.string()
-    .required("This field can't be blank")
-    .min(7, 'Must contain at least 8 characters')
-    .max(18, 'Must contain at most 18 characters')
-    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
-})
-
-export default (props) => {
-  const [error, setError] = useState(null)
-
-  const onSubmit = async (values, { setSubmitting }) => {
-    try {
-      const { email, password } = values
-      //... do login
-      setError(null)      
-    } catch (e) {
-      console.log(e)
-      setError(e)
-    }
-
-    setSubmitting(false)
-  }
-
-  const initialValues = {
-
-  }
-
-  return (
-    <div>      
-      <h1>{t('Login')}</h1>            
-      <Formulaik
-        componentsLibraries={[FormulaikLocal,]}
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        inputs={inputs}
-        onSubmit={onSubmit}
-        error={error} />      
-    </div>
-  )
 }
 ```
