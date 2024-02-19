@@ -211,9 +211,8 @@ export default (props) => {
 
   }
 
-  return (
-    <div>      
-      <h1>{t('Login')}</h1>            
+  return <div>      
+      <h1>Login</h1>            
       <Formulaik
         componentsLibraries={[FormulaikLocal,]}
         initialValues={initialValues}
@@ -222,6 +221,5 @@ export default (props) => {
         onSubmit={onSubmit}
         error={error} />      
     </div>
-  )
 }
 ```

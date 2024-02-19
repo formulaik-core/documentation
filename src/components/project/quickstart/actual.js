@@ -23,14 +23,30 @@ import * as Yup from 'yup'`}
 {`const inputs = [
   {
     type: 'input',
-    schema: 'code',
-    id: 'code',
-    label: 'Code',
+    schema: 'email',
+    id: 'email',
+    label: 'Email',
+    params: {
+      type: 'email',
+      placeholder: "email@domain.com"
+    }
+  },
+  {
+    type: 'inputPassword',
+    schema: 'password',
+    label: 'Password',
+    id: 'password',
+    params: {
+      type: 'password',
+      autoComplete: "current-password",
+      placeholder: "xxxx-xxxx-xxxx"
+    }
   },
   {
     type: 'submit',
-    id: 'submit',
-    value: t('Validate'),
+    params: {
+      text: 'Continue'
+    }
   },
 ]`}
           </CodeBlock>
@@ -51,10 +67,15 @@ import * as Yup from 'yup'`}
           <p>
             <CodeBlock language="jsx">
 {`const validationSchema = Yup.object().shape({
-  code: Yup.string()
-      .max(20, 'Too Long!')
-      .required(VALIDATION_BLANK_TEXT),
-  })`}
+  email: Yup.string()
+    .email('Invalid email format')
+    .required("This field can't be blank"),
+  password: Yup.string()
+    .required("This field can't be blank")
+    .min(7, 'Must contain at least 8 characters')
+    .max(18, 'Must contain at most 18 characters')
+    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
+})`}
             </CodeBlock>        
           </p>
           <p className={`text-lg font-bold`}>
@@ -64,18 +85,28 @@ import * as Yup from 'yup'`}
             <CodeBlock language="jsx">
 {`export default (props) => {
   const onSubmit = async (values, { setSubmitting }) => {
-    ...
+    try {
+      const { email, password } = values
+      //... do login
+      setError(null)      
+    } catch (e) {
+      console.log(e)
+      setError(e)
+    }
+
+    setSubmitting(false)
   }
 
-  return <div>    
-    <h3>Verify email</h3>                
-    <Formulaik
-      componentsLibraries={[FormulaikMui]}
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      inputs={inputs}
-      onSubmit={onSubmit}
-      error={error} />
+  return <div>      
+      <h1>Login</h1>            
+      <Formulaik
+        componentsLibraries={[FormulaikLocal,]}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        inputs={inputs}
+        onSubmit={onSubmit}
+        error={error} />      
+    </div>
 }`}
       </CodeBlock>        
       </p>
