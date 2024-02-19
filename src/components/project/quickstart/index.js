@@ -11,6 +11,9 @@ export default ({hideTitle = false}) => <div class={`
           max-w-md
         `}>
       <h2 className='text-4xl'>{`Quick start 🚀`}</h2>
+      <p className={`text-lg italic`}>
+            Let's build a login form with email and password inputs.
+          </p>
       <Actual />
     </div>
   </div>

@@ -7,18 +7,17 @@ export default ({}) => <div class={`
           <p className={`text-lg font-bold`}>
             1. Install formulaik, yup for validation and a component library
           </p>
-          <BashTabs npm={`npm install @formulaik/react`} />
-          
-            <CodeBlock language="jsx">
+          <BashTabs npm={`npm install @formulaik/react`} />          
+          <CodeBlock language="jsx">
 {`import Formulaik from '@formulaik/react'
 import FormulaikMui from '@formulaik-community/formulaik-mui-react'
 import * as Yup from 'yup'`}
-            </CodeBlock>
+          </CodeBlock>
          
           <p className={`text-lg font-bold`}>
           2. Define inputs   
           </p>        
-            <CodeBlock language="jsx">
+          <CodeBlock language="jsx">
 {`const inputs = [
   {
     type: 'input',

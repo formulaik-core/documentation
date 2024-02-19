@@ -7,18 +7,18 @@ export default [
     Svg: require('@site/static/img/noun-input-1678871.svg').default,    
     description: (
       <>
-        Formulaik makes it easy to add a command by creating a folder and adding its subcommands. 
+        The JSON based form declaration is what separates Formulaik from other frameworks. Simply give an array of inputs and component libraries to find their implementation.
       </>
     ),
     url: '/docs/concepts'
   },
   {
-    title: 'Component libraries',
+    title: 'Predicatable, scalable clean forms',
     Svg: require('@site/static/img/noun-photo-5578498.svg').default,
     // Svg: require('@site/static/img/noun-question-3323941.svg').default,
     description: (
       <>
-        Options can be defined at a global level and inherited at a command level to promote reuse.
+        Every input component follows a unique API that make it readable, testable, maintainable and shippable. 
       </>
     ),
   },
@@ -30,7 +30,7 @@ export default [
     // Svg: require('@site/static/img/noun-settings-1269041.svg').default,
     description: (
       <>
-        Every aspect of a command parameters can be declared easily via input and output transformers, an input validators.
+        The component libraries system makes it easy to use a feature team, a project, a company or a community library to jump start a project.
       </>
     ),
   },
