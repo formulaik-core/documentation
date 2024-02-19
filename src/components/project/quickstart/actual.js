@@ -8,17 +8,16 @@ export default ({}) => <div class={`
             1. Install formulaik, yup for validation and a component library
           </p>
           <BashTabs npm={`npm install @formulaik/react`} />
-          <p>
+          
             <CodeBlock language="jsx">
 {`import Formulaik from '@formulaik/react'
 import FormulaikMui from '@formulaik-community/formulaik-mui-react'
 import * as Yup from 'yup'`}
             </CodeBlock>
-          </p>
+         
           <p className={`text-lg font-bold`}>
           2. Define inputs   
           </p>        
-          <p>
             <CodeBlock language="jsx">
 {`const inputs = [
   {
@@ -50,21 +49,21 @@ import * as Yup from 'yup'`}
   },
 ]`}
           </CodeBlock>
-          </p>
+        
           <p className={`text-lg font-bold`}>
             3. Provide initial values
           </p>          
-          <p>
+         
             <CodeBlock language="jsx">
 {`const initialValues = {
-
+    email: cookies.get('email'),
 }`}
             </CodeBlock>
-          </p>
+          
           <p className={`text-lg font-bold`}>
             4. Define validation 
           </p>
-          <p>
+         
             <CodeBlock language="jsx">
 {`const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -77,11 +76,11 @@ import * as Yup from 'yup'`}
     .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
 })`}
             </CodeBlock>        
-          </p>
+          
           <p className={`text-lg font-bold`}>
             5. Render forms and handle submit
           </p>
-          <p>
+         
             <CodeBlock language="jsx">
 {`export default (props) => {
   const onSubmit = async (values, { setSubmitting }) => {
@@ -109,5 +108,5 @@ import * as Yup from 'yup'`}
     </div>
 }`}
       </CodeBlock>        
-      </p>
+     
     </div>
