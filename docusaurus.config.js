@@ -143,7 +143,7 @@ const config = {
         id: 'support_ukraine',
         content:
           `
-          <div className={""}> 
+          <div> 
             Formulaik is not released yet. This is a work in progress.
           </div>`,
         backgroundColor: '#323232',
