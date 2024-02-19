@@ -39,8 +39,8 @@ export default () => {
             {`${siteConfig.title}`} <br /> <i className='text-gray-600 dark:text-gray-400'>for React</i>
           </h1>
           <p className={`text-lg `}>
-          An open source framework for building modern forms.
-          Formulaik extends Formik with a JSON based declarative approach.
+          An open source meta framework for building modern forms the right way, with reusable components in a JSON based declarative approach.
+          Get ready to change the way you build your forms 🍨
           </p>
           <div className={`
             grid 
