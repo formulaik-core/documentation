@@ -183,12 +183,12 @@ const config = {
             position: 'left',
             label: 'Guides',
           },
-          {
-            type: 'doc',
-            docId: 'tutorials/login',
-            position: 'left',
-            label: 'Tutorials',
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'tutorials/login',
+          //   position: 'left',
+          //   label: 'Tutorials',
+          // },
           {
             type: 'doc',
             docId: 'reference/formulaik',
