@@ -140,7 +140,7 @@ const config = {
       //   },               
       // },
       announcementBar: {
-        id: 'support_ukraine',
+        id: 'pre-release',
         content:
           `
           <div> 
