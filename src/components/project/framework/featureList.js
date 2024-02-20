@@ -13,7 +13,7 @@ export default [
     url: '/docs/concepts'
   },
   {
-    title: 'Predicatable, scalable clean forms',
+    title: 'Predictable, scalable clean forms',
     Svg: require('@site/static/img/noun-photo-5578498.svg').default,
     // Svg: require('@site/static/img/noun-question-3323941.svg').default,
     description: (
