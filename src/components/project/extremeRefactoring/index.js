@@ -37,7 +37,7 @@ export default () => {
             {`Extreme refactoring from the start`} <i></i>
           </h2>
           <p className={`font-bold text-lg `}>
-            {`A Node JS framework built on top of Parse Server and tailored for features. It provides a concise, easy to use and scalable template to get the best of features.\n Get ready to change the way you code your server!`}
+            {`An open source meta framework for building modern forms the right way, with reusable components in a JSON based declarative approach.It provides a concise, easy to use and scalable template to get the best of features.\n Get ready to change the way you code your server!`}
           </p>
           <div className={``}>
             <Link

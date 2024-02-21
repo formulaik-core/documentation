@@ -14,7 +14,7 @@ export default () => {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="A Node JS framework built on top of Parse Server and tailored for features. It provides a concise, easy to use and scalable template to get the best of features.\n Get ready to change the way you code your server!">
+      description="An open source meta framework for building modern forms the right way, with reusable components in a JSON based declarative approach.It provides a concise, easy to use and scalable template to get the best of features.\n Get ready to change the way you code your server!">
       <HomePageHeader />      
       <main className='pb-16'>        
         <Framework />
