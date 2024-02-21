@@ -2265,9 +2265,9 @@
     react-textarea-autosize "^8.3.3"
     use-debounce "^7.0.1"
 
-"@formulaik/engine-react@^1.1.1":
+"@formulaik/react@^1.1.1":
   version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@formulaik/engine-react/-/engine-react-1.1.3.tgz#62e6ba900c397824e3ac52215ffbc7f3ea1910f7"
+  resolved "https://registry.yarnpkg.com/@formulaik/react/-/engine-react-1.1.3.tgz#62e6ba900c397824e3ac52215ffbc7f3ea1910f7"
   integrity sha512-1RfQ+Lct6O0OtLqChZ4t2aBnJEv/Gvo6SmRjPLg1Mc20MK12fB/aiPAq49mwUq3qZyuVy0V06S2Jb0nQkh+0nA==
   dependencies:
     "@loadable/component" "^5.15.2"

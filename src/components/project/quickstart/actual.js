@@ -7,9 +7,9 @@ export default ({}) => <div class={`
           <p className={`text-lg font-bold`}>
             1. Install formulaik, yup for validation and a component library
           </p>
-          <BashTabs npm={`npm install @formulaik/engine-react`} />          
+          <BashTabs npm={`npm install @formulaik/react`} />          
           <CodeBlock language="jsx">
-{`import Formulaik from '@formulaik/engine-react'
+{`import Formulaik from '@formulaik/react'
 import FormulaikMui from '@formulaik-community/react-mui'
 import * as Yup from 'yup'`}
           </CodeBlock>
