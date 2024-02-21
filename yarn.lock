@@ -2227,9 +2227,9 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.1.tgz#16308cea045f0fc777b6ff20a9f25474dd8293d2"
   integrity sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==
 
-"@formulaik-community/formulaik-mui-react@^1.0.3":
+"@formulaik-community/react-mui@^1.0.3":
   version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@formulaik-community/formulaik-mui-react/-/formulaik-mui-react-1.0.3.tgz#a3fcec10f641b9d8aaad4f786e13fe5d26feb304"
+  resolved "https://registry.yarnpkg.com/@formulaik-community/react-mui/-/formulaik-mui-react-1.0.3.tgz#a3fcec10f641b9d8aaad4f786e13fe5d26feb304"
   integrity sha512-hGWyKJVLdmv4ZYexslmPUQw5g8CkKBN9NJ2448kTpvS9ccuJkOUUz0tND+iGZ4ziG+SLEELBKfqlC2ZZC2SK5g==
   dependencies:
     "@anatoliygatt/numeric-stepper" "^1.0.1"
@@ -2265,9 +2265,9 @@
     react-textarea-autosize "^8.3.3"
     use-debounce "^7.0.1"
 
-"@formulaik/react@^1.1.1":
+"@formulaik/engine-react@^1.1.1":
   version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@formulaik/react/-/react-1.1.1.tgz#f92601f86794de1bce958986fd994170093c4174"
+  resolved "https://registry.yarnpkg.com/@formulaik/engine-react/-/react-1.1.1.tgz#f92601f86794de1bce958986fd994170093c4174"
   integrity sha512-l5EWHy3mtUEljx2/D4880hyflZVDsEJoLOuH5zFTNXV1qRakmSqitP4Vja3RdV09iTLkZX3oWWkfCAXqYjXoLQ==
   dependencies:
     "@loadable/component" "^5.15.2"

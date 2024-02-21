@@ -1,7 +1,6 @@
 import React from 'react'
 import Actual from './actual'
-export default ({hideTitle = false}) => <div class={`                     
-                     
+export default ({ hideTitle = false }) => <div class={`                     
         flex 
         justify-center`}>
     <div class={`          
