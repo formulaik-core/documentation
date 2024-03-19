@@ -36,7 +36,7 @@ export default () => {
           max-w-md
         `}>
           <h1 className='text-6xl'>
-            {`${siteConfig.title}`} <br /> <i className='text-gray-600 dark:text-gray-400'>React Form Builder</i>
+            {`${siteConfig.title}`} <br /> <i className='text-gray-600 dark:text-gray-400'>framework for forms</i>
           </h1>
           <p className={`text-lg `}>
           An open source meta framework for building modern forms the right way, with reusable components in a JSON based declarative approach.

@@ -144,10 +144,10 @@ const config = {
         content:
           `
           <div> 
-            Formulaik is not released yet. This is a work in progress.
+            Formulaik is not released yet. Work in progress.
           </div>`,
-        backgroundColor: '#dadada',
-        textColor: '#121212',
+        backgroundColor: '#6B6BA5',
+        textColor: '#fafafa',
         isCloseable: false,
       },
       matomo: {
