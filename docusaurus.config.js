@@ -145,7 +145,8 @@ const config = {
           `
           <div> 
             Formulaik is not released yet. Work in progress.
-          </div>`,
+          </div>
+          `,
         backgroundColor: '#6B6BA5',
         textColor: '#fafafa',
         isCloseable: false,

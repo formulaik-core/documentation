@@ -11,7 +11,7 @@ export default ({}) => <div class={`
           <CodeBlock language="jsx">
 {`import Formulaik from '@formulaik/react'
 import FormulaikMui from '@formulaik-community/react-mui'
-import * as Yup from 'yup'`}
+`}
           </CodeBlock>
          
           <p className={`text-lg font-bold`}>
@@ -20,28 +20,48 @@ import * as Yup from 'yup'`}
           <CodeBlock language="jsx">
 {`const inputs = [
   {
-    type: 'input',
-    schema: 'email',
+    component: 'input',
     id: 'email',
     label: 'Email',
+    type: "string",
     params: {
       type: 'email',
       placeholder: "email@domain.com"
+    },
+    validation: {
+      format: {
+        value: "email",
+        message: 'Invalid email format',
+      },
+      required: {
+        value: true,
+        message: "This field can't be blank",
+      },
     }
   },
   {
-    type: 'inputPassword',
-    schema: 'password',
+    component: 'inputPassword',
     label: 'Password',
     id: 'password',
+    type: "string",
     params: {
       type: 'password',
       autoComplete: "current-password",
       placeholder: "xxxx-xxxx-xxxx"
+    },
+    validation: {
+      matches: {
+        value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+        message: 'Invalid password, must contain at least 8 characters and at most 18 characters',
+      },
+      required: {
+        value: true,
+        message: "This field can't be blank",
+      },
     }
   },
   {
-    type: 'submit',
+    component: 'submit',
     params: {
       text: 'Continue'
     }
@@ -59,25 +79,10 @@ import * as Yup from 'yup'`}
 }`}
             </CodeBlock>
           
-          <p className={`text-lg font-bold`}>
-            4. Define validation 
-          </p>
-         
-            <CodeBlock language="jsx">
-{`const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Invalid email format')
-    .required("This field can't be blank"),
-  password: Yup.string()
-    .required("This field can't be blank")
-    .min(7, 'Must contain at least 8 characters')
-    .max(18, 'Must contain at most 18 characters')
-    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
-})`}
-            </CodeBlock>        
+                
           
           <p className={`text-lg font-bold`}>
-            5. Render forms and handle submit
+            4. Render forms and handle submit
           </p>
          
             <CodeBlock language="jsx">
@@ -85,25 +90,20 @@ import * as Yup from 'yup'`}
   const onSubmit = async (values, { setSubmitting }) => {
     try {
       const { email, password } = values
-      //... do login
-      setError(null)      
+      //... do login      
     } catch (e) {
-      console.log(e)
-      setError(e)
+      console.log(e)      
     }
-
-    setSubmitting(false)
   }
 
   return <div>      
       <h1>Login</h1>            
       <Formulaik
-        componentsLibraries={[FormulaikLocal,]}
-        initialValues={initialValues}
-        validationSchema={validationSchema}
+        components={[FormulaikLocal,]}
+        initialValues={initialValues}        
         inputs={inputs}
         onSubmit={onSubmit}
-        error={error} />      
+         />      
     </div>
 }`}
       </CodeBlock>        
