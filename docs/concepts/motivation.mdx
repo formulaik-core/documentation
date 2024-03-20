@@ -9,62 +9,13 @@ import Definitions from '@site/src/components/project/definitions/actual'
 
 ![logo](/img/icon_xs.svg)
 
-```jsx
-import Formulaik from '@formulaik/react'
-import FormulaikMui from '@formulaik-community/react-mui'
-import * as Yup from 'yup'
+## What is Formulaik?
+Formulaik aims to simplify form building across various front-end frameworks.
+Formulaik is not a form library itself, it defines a protocol for defining form inputs as a sole source of truth (data type, behaviour, validation) in json.
+That definition can be interpreted by any formulaik engine on any compatible front-end framework.
+Any input declares the component type it needs to collect the user's input.
+Any Formulaik engine renders the said input by requesting the component from libraries (components) and rendering them with a standardized api.
 
-export default (props) => {
-  const onSubmit = async (values, { setSubmitting }) => {
-    try {
-      const { code, } = values
-     //
-    } catch (e) {
-      //
-    }
-
-    setSubmitting(false)
-  }
-
-  const inputs = [
-    {
-      type: 'input',
-      schema: 'code',
-      id: 'code',
-      label: 'Code',
-    },
-    {
-      type: 'submit',
-      id: 'submit',
-      value: t('Validate'),
-    },
-  ]
-
-  const values = {
-
-  }
-
-  const validationSchema = Yup.object().shape({
-    code: Yup.string()
-        .max(20, 'Too Long!')
-        .required(VALIDATION_BLANK_TEXT),
-    })
-
-  return <div>    
-    <h3>Verify email</h3>                
-    <Formulaik
-      components={[FormulaikMui]}
-      values={values}
-      validationSchema={validationSchema}
-      inputs={inputs}
-      onSubmit={onSubmit}
-      error={error} />
-}
-```
-
-## Why another framework?
-We used yeoman as our CLI framework in the past. Yeoman quickly became hard to maintain. 
-#TODO
 
 ## Principles
 ### Convention over configuration
