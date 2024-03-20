@@ -178,7 +178,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'gettingstarted/requirements',
+            docId: 'gettingstarted/react/installation',
             position: 'left',
             label: 'Getting started',
           },
