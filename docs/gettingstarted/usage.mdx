@@ -207,7 +207,7 @@ export default (props) => {
     setSubmitting(false)
   }
 
-  const initialValues = {
+  const values = {
 
   }
 
@@ -215,7 +215,7 @@ export default (props) => {
       <h1>Login</h1>            
       <Formulaik
         components={[FormulaikLocal,]}
-        initialValues={initialValues}
+        values={values}
         validationSchema={validationSchema}
         inputs={inputs}
         onSubmit={onSubmit}

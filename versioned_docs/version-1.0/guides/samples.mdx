@@ -32,7 +32,7 @@ export default (props) => {
     },
   ]
 
-  const initialValues = {
+  const values = {
 
   }
 
@@ -46,7 +46,7 @@ export default (props) => {
     <h3>Verify email</h3>                
     <Formulaik
       components={[FormulaikMui]}
-      initialValues={initialValues}
+      values={values}
       validationSchema={validationSchema}
       inputs={inputs}
       onSubmit={onSubmit}

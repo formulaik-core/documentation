@@ -10,7 +10,7 @@ export default ({ hideTitle = false }) => <div class={`
           max-w-sm
           px-4   
         `}>
-      <h2 className='text-4xl'>{`Quick start 🚀`}</h2>
+      <h2 className='text-4xl'>{`Quick start with React JS 🚀`}</h2>
       <p className={`text-lg italic`}>
             Let's build a login form with email and password inputs.
           </p>

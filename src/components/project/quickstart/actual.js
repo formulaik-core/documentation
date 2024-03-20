@@ -5,14 +5,9 @@ import BashTabs from '@site/src/components/generic/bashTabs'
 export default ({}) => <div class={`                     
         `}>
           <p className={`text-lg font-bold`}>
-            1. Install formulaik, yup for validation and a component library
+            1. Install formulaik and a component library
           </p>
-          <BashTabs npm={`npm install @formulaik/react`} />          
-          <CodeBlock language="jsx">
-{`import Formulaik from '@formulaik/react'
-import FormulaikMui from '@formulaik-community/react-mui'
-`}
-          </CodeBlock>
+          <BashTabs npm={`npm install @formulaik/react @formulaik-community/react-mui`} />          
          
           <p className={`text-lg font-bold`}>
           2. Define inputs   
@@ -70,23 +65,23 @@ import FormulaikMui from '@formulaik-community/react-mui'
           </CodeBlock>
         
           <p className={`text-lg font-bold`}>
-            3. Provide initial values
+            3. Provide initial values (optional)
           </p>          
          
             <CodeBlock language="jsx">
-{`const initialValues = {
+{`const values = {
     email: cookies.get('email'),
 }`}
             </CodeBlock>
-          
-                
-          
           <p className={`text-lg font-bold`}>
             4. Render forms and handle submit
           </p>
          
             <CodeBlock language="jsx">
-{`export default (props) => {
+{`import Formulaik from '@formulaik/react'
+import FormulaikMui from '@formulaik-community/react-mui'
+
+export default (props) => {
   const onSubmit = async (values, { setSubmitting }) => {
     try {
       const { email, password } = values
@@ -96,15 +91,15 @@ import FormulaikMui from '@formulaik-community/react-mui'
     }
   }
 
-  return <div>      
-      <h1>Login</h1>            
+  return <>      
+      <h3>Login</h3>            
       <Formulaik
-        components={[FormulaikLocal,]}
-        initialValues={initialValues}        
+        components={[FormulaikLocal]}
+        values={values}        
         inputs={inputs}
         onSubmit={onSubmit}
          />      
-    </div>
+    </>
 }`}
       </CodeBlock>        
     </div>
