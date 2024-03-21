@@ -1,7 +1,8 @@
 import React from 'react'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 // import LogoAnimated from '../logo/animated'
-import Link from '@docusaurus/Link'
+// import Link from '@docusaurus/Link'
+import SVGPlus from '@site/src/components/generic/svgplus'
 
 export default () => {
   const { siteConfig } = useDocusaurusContext()
@@ -41,14 +42,20 @@ export default () => {
           </h2>
           <p className={`text-lg `}>
             Go from having your form inputs behavior cluttered in a React file to a clear separation of concerns between declaration via a JSON and component libraries.
-          </p>          
+          </p>    
           <p>
+          <SVGPlus name={'architecture'} 
+light={require('@site/static/diagrams/light/architecture.svg').default} 
+dark={require('@site/static/diagrams/dark/architecture.svg').default} 
+/>
+          </p>      
+          {/* <p>
             <Link
               className="button button--secondary button--md"
               to="/docs/guides/overview">
               Learn more about creating an input
             </Link>
-          </p>
+          </p> */}
           {/* <div className={``}>
             <Link
               className="button button--secondary button--lg"

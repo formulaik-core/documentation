@@ -7,7 +7,7 @@ export default ({}) => <div class={`
           <p className={`text-lg font-bold`}>
             1. Install formulaik and a component library
           </p>
-          <BashTabs npm={`npm install @formulaik/react-native @formulaik-community/react-native-mui`} />          
+          <BashTabs npm={`npm install @formulaik/react-native @formulaik-community/react-native-paper`} />          
          
           <p className={`text-lg font-bold`}>
           2. Define inputs   
@@ -78,8 +78,9 @@ export default ({}) => <div class={`
           </p>
          
             <CodeBlock language="jsx">
-{`import Formulaik from '@formulaik/react'
-import FormulaikMui from '@formulaik-community/react-mui'
+{`import Formulaik from '@formulaik/react-native'
+import FormulaikPaper from '@formulaik-community/react-native-paper'
+import { Text } from 'react-native'
 
 export default (props) => {
   const onSubmit = async (values, { setSubmitting }) => {
@@ -92,9 +93,9 @@ export default (props) => {
   }
 
   return <>      
-      <text>Login</text>            
+      <Text>Login</Text>            
       <Formulaik
-        components={[FormulaikLocal]}
+        components={[FormulaikPaper]}
         values={values}        
         inputs={inputs}
         onSubmit={onSubmit}

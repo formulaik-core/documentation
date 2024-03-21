@@ -94,7 +94,7 @@ export default (props) => {
   return <>      
       <h3>Login</h3>            
       <Formulaik
-        components={[FormulaikLocal]}
+        components={[FormulaikMui]}
         values={values}        
         inputs={inputs}
         onSubmit={onSubmit}
