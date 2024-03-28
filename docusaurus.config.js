@@ -139,18 +139,18 @@ const config = {
       //     fontSize: 14
       //   },               
       // },
-      announcementBar: {
-        id: 'pre-release',
-        content:
-          `
-          <div> 
-            Formulaik is not released yet. Work in progress.
-          </div>
-          `,
-        backgroundColor: '#6B6BA5',
-        textColor: '#fafafa',
-        isCloseable: false,
-      },
+      // announcementBar: {
+      //   id: 'pre-release',
+      //   content:
+      //     `
+      //     <div> 
+      //       Formulaik is not released yet. Work in progress.
+      //     </div>
+      //     `,
+      //   backgroundColor: '#6B6BA5',
+      //   textColor: '#fafafa',
+      //   isCloseable: false,
+      // },
       matomo: {
         // matomoUrl: (process.env.MATOMO_URL && process.env.MATOMO_URL.length) ? process.env.MATOMO_URL : 'https://your.matomo.instance/',
         // siteId: (process.env.MATOMO_SITE_ID && process.env.MATOMO_SITE_ID.length) ? process.env.MATOMO_SITE_ID : 'ID',
