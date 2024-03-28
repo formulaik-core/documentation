@@ -9,9 +9,7 @@ export default ({ hideTitle = false }) => <div class={`
         flex         
         justify-center
         `}>
-    <div class={`          
-          justify-center      
-          align-middle                
+    <div class={`                        
           md:max-w-2xl
           max-w-sm
           px-2            
