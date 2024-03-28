@@ -40,10 +40,13 @@ export default () => {
           <br /> <i className='text-gray-600 dark:text-gray-400'>project</i>
           </h1>
           <p className={`text-lg `}>
-          An open source initiative for defining cross-platform forms, enabling reusable components in a JSON based declarative approach.          
+          An open source initiative for defining cross-platform forms, 
+          enabling reusable components in a JSON based declarative approach.          
           Formulaik aims to simplify form building across various front-end frameworks.
-          Formulaik is not a form library itself, it defines a protocol for defining form inputs as a sole source of truth (data type, behaviour, validation) in json.
-          That definition can be interpreted by any formulaik engine on any compatible front-end framework.
+          Formulaik is not a form library itself, it defines a protocol for defining form inputs 
+          as a sole source of truth (data type, behaviour, validation) in json, which is interpreted 
+          by a platform-specific formulaik engine.
+          <br />
           🍨
           </p>
           <div className={`
