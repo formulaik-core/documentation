@@ -5,6 +5,19 @@ import ReactNativeView from './reactnative'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
+const NotAvailable = () => 
+<div className='h-36 bg-red-500
+          w-full'>
+  <h4>
+    Not available yet.
+  </h4>                
+  <a>
+    Want to contribute? Join the movement.
+  </a>
+</div>
+
+
+
 export default ({ hideTitle = false }) => <div class={`                     
         flex         
         justify-center
@@ -17,55 +30,27 @@ export default ({ hideTitle = false }) => <div class={`
       <h2 className='text-4xl'>{`Quick start 🚀`}</h2>
       <p className={`text-lg italic`}>
             Let's build a login form with email and password inputs.
-          </p>
-          <Tabs>
-            <TabItem value="React JS" label="React JS" default>
-              <ReactView />
-            </TabItem>
-            <TabItem value="React Native" label="React Native">
-                <ReactNativeView />
-            </TabItem>
-            <TabItem value="Swift" label="Swift">
-              <div className='h-300'>
-                <h4>
-                  Not available yet.
-                </h4>                
-                <a>
-                  Want to contribute? Contact us.
-                </a>
-              </div>
-                
-            </TabItem>
-            <TabItem value="Kotlin" label="Kotlin">
-            <div className='h-300'>
-                <h4>
-                  Not available yet.
-                </h4>                
-                <a>
-                  Want to contribute? Contact us.
-                </a>
-              </div>
-            </TabItem>
-            <TabItem value="flutter" label="Flutter">
-            <div className='h-300'>
-                <h4>
-                  Not available yet.
-                </h4>                
-                <a>
-                  Want to contribute? Contact us.
-                </a>
-              </div>
-            </TabItem>
-            <TabItem value="VueJS" label="Vue JS">
-            <div className='h-300'>
-                <h4>
-                  Not available yet.
-                </h4>                
-                <a>
-                  Want to contribute? Contact us.
-                </a>
-              </div>
-            </TabItem>
-        </Tabs>
+      </p>
+      <Tabs className=' 
+      w-full'>
+        <TabItem value="React JS" label="React JS" default>
+          <ReactView />
+        </TabItem>
+        <TabItem value="React Native" label="React Native">
+            <ReactNativeView />
+        </TabItem>
+        <TabItem value="Swift" label="Swift">
+          <NotAvailable />                              
+        </TabItem>
+        <TabItem value="Kotlin" label="Kotlin">
+          <NotAvailable />              
+        </TabItem>
+        <TabItem value="flutter" label="Flutter">
+          <NotAvailable />              
+        </TabItem>
+        <TabItem value="VueJS" label="Vue JS">
+          <NotAvailable />              
+        </TabItem>
+    </Tabs>
     </div>
   </div>
