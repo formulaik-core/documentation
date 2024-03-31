@@ -26,10 +26,45 @@ export default ({ hideTitle = false }) => <div class={`
                 <ReactNativeView />
             </TabItem>
             <TabItem value="Swift" label="Swift">
-                Want to contribute? Contact me.
+              <div className='h-300'>
+                <h4>
+                  Not available yet.
+                </h4>                
+                <a>
+                  Want to contribute? Contact us.
+                </a>
+              </div>
+                
             </TabItem>
             <TabItem value="Kotlin" label="Kotlin">
-                Want to contribute? Contact me.
+            <div className='h-300'>
+                <h4>
+                  Not available yet.
+                </h4>                
+                <a>
+                  Want to contribute? Contact us.
+                </a>
+              </div>
+            </TabItem>
+            <TabItem value="flutter" label="Flutter">
+            <div className='h-300'>
+                <h4>
+                  Not available yet.
+                </h4>                
+                <a>
+                  Want to contribute? Contact us.
+                </a>
+              </div>
+            </TabItem>
+            <TabItem value="VueJS" label="Vue JS">
+            <div className='h-300'>
+                <h4>
+                  Not available yet.
+                </h4>                
+                <a>
+                  Want to contribute? Contact us.
+                </a>
+              </div>
             </TabItem>
         </Tabs>
     </div>

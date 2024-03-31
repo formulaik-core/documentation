@@ -13,8 +13,7 @@ export default ({}) => <div class={`
           2. Define inputs   
           </p>        
           <CodeBlock language="jsx">
-{`
-const inputs = [
+{`const inputs = [
   {
     component: 'input',
     id: 'email',
