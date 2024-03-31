@@ -6,8 +6,8 @@ import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
 const NotAvailable = () => 
-<div className='h-36 bg-red-500
-          w-full'>
+<div className='h-36 
+          '>
   <h4>
     Not available yet.
   </h4>                
@@ -31,8 +31,7 @@ export default ({ hideTitle = false }) => <div class={`
       <p className={`text-lg italic`}>
             Let's build a login form with email and password inputs.
       </p>
-      <Tabs className=' 
-      w-full'>
+      <Tabs>
         <TabItem value="React JS" label="React JS" default>
           <ReactView />
         </TabItem>
