@@ -1,0 +1,75 @@
+
+# Samples
+
+### Verify email
+
+```jsx live
+import Formulaik from '@formulaik/react'
+import FormulaikMui from '@formulaik-community/react-mui'
+import * as Yup from 'yup'
+
+export default (props) => {
+  const onSubmit = async (values, { setSubmitting }) => {    
+    const { code, } = values
+
+    setSubmitting(false)
+  }
+
+  const inputs = [
+    {
+      type: 'input',
+      schema: 'code',
+      id: 'code',
+      label: 'Code',
+    },
+    {
+      type: 'submit',
+      id: 'submit',
+      value: t('Validate'),
+    },
+  ]
+
+  const values = {
+
+  }
+
+  const validationSchema = Yup.object().shape({
+    code: Yup.string()
+        .max(20, 'Too Long!')
+        .required(VALIDATION_BLANK_TEXT),
+    })
+
+  return <div>    
+    <h3>Verify email</h3>                
+    <Formulaik
+      components={[FormulaikMui]}
+      values={values}
+      validationSchema={validationSchema}
+      inputs={inputs}
+      onSubmit={onSubmit}
+      error={error} />
+}
+```
+
+```jsx live
+function Clock(props) {
+  const [date, setDate] = useState(new Date());
+  useEffect(() => {
+    const timerID = setInterval(() => tick(), 1000);
+
+    return function cleanup() {
+      clearInterval(timerID);
+    };
+  });
+
+  function tick() {
+    setDate(new Date());
+  }
+
+  return (
+    <div>
+      <h2>It is {date.toLocaleTimeString()}.</h2>
+    </div>
+  );
+}
+```
