@@ -43,7 +43,7 @@ export default () => {
           An open source initiative for defining cross-platform forms, 
           enabling reusable components in a JSON based declarative approach.          
           Formulaik aims to simplify form building across various front-end frameworks.
-          Formulaik is not a form library itself, it defines a protocol for defining form inputs 
+          Formulaik defines a protocol for defining form inputs 
           as a sole source of truth (data type, behaviour, validation) in json, which is interpreted 
           by a platform-specific formulaik engine.
           <br />
