@@ -6,35 +6,60 @@ sidebar_position: 3
 
 ## Create your own components library
 
-We will put our components in a folder and return the appropriate input by calling the default function in ```index.js```.
-For example we will name our folder ```components/formulaik-library```.
+A Formulaik [component library](../concepts/terms#component-library) is a set of Formulaik compatible inputs each with a unique key.
+Formulaik's strength lies in the modularity of the components library. 
+You can quickly switch from one component to the other by referring different component libraries.
 
-### index.js
+In this guide we will create a local component library for the `input`, `inputPassword`, `submit` and `checkbox` components.
+
+### Structure
+A component library is basically a function that returns a component when given a key (the `component` part of an `input`).
+We will use the recommended structure in this tutorial:
+
+```bash
+├── formulaik-local-library
+│   ├── index.js
+│   ├── input
+│   ├──── index.js
+│   ├── inputPassword
+│   ├──── index.js
+│   ├── submit
+│   ├──── index.js
+│   ├── checkbox
+│   ├──── index.js
+```
+An input component is standardized, it follows the [input interface api](../reference/react/input.mdx)
+
+### `index.js`
 
 ```js
-import input from './input'
-import inputPassword from './inputPassword'
-import submit from './submit'
+import Input from './input'
+import Submit from './submit'
+import Checkbox from './checkbox'
+import InputPassword from './inputPassword'
 
 export default (props) => {
-    const { type } = props
-    switch (type) {
-        case 'input':
-            return input                
-        case 'inputPassword':
-            return inputPassword                
-        case 'submit':
-            return submit                
-        default:
-            return null;
-    }
+  const { type } = props
+  switch (type) {
+    case 'input':
+      return Input  
+    case 'inputPassword':
+      return InputPassword
+    case 'submit':
+      return Submit    
+    case 'checkbox':
+      return Checkbox    
+    default:
+      return null
+  }
 }
 ```
 
-### Create input components
-An input component is standardized, it follows the [input interface api](../reference/react/input.mdx)
+### `input` component
+This component is the default one line text input component.
 
-Text input: **/input/index.js*
+Path: `input/index.js`
+
 ```js
 import { useCallback, useEffect, useState, } from 'react'
 import TextField from '@mui/material/TextField'
@@ -101,24 +126,6 @@ export default (props) => {
     }
   }
 
-  const layoutModeClassName = () => {
-    switch (layoutMode) {
-      default:
-      case 'form': {
-        return `
-          `
-      }
-      case 'inline': {
-        return `                    
-            `
-      }
-    }
-  }
-
-  const onBlur = () => {
-    console.log('onblur')
-  }
-
   return <TextField
     variant={variant}
     fullWidth
@@ -131,95 +138,119 @@ export default (props) => {
     InputLabelProps={{ style: inputLabelPropsStyle }}
     value={innerValue}
     multiline={multiline}
-    className={`transition-all ease-in-out duration-1000 ${error ? 'bg-red-50' : ''}
-    ${className}    
-    ${layoutModeClassName()}`}
-    onBlur={onBlur}
+    className={`transition-all ease-in-out duration-1000 ${error ? 'bg-red-50' : ''} ${className}`} 
     onChange={handleOnChange}
     {...layoutModeProps()}
     {...params}
   />
 }
 ```
+This component adapts a Google Material UI (Mui) Text input to Formulaik.
+- It forwards the `disabled` state to the Mui component
+- It forwards the rest of the `params` the Mui component for a pass-through customization
+- It binds the current `value` the Mui component prop `checked`
+- It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange` and debounces it
 
-## Build the form
 
-```jsx
-import { useState } from 'react'
+## Putting it all together
+
+```js
 import Formulaik from '@formulaik/react'
-import FormulaikLocal from 'components/formulaik-library'
-import * as Yup from 'yup'
+import FormulaikMui from '@formulaik-community/react-mui'
+import FormulaikLocal from 'components/formulaik-local-library'
 
-const inputs = [
+export default (props) => {
+  
+  const inputs = [
   {
     component: 'input',
-    schema: 'email',
     id: 'email',
     label: 'Email',
-    params: {
-      type: 'email',
+    type: "string",
+    params: {        
       placeholder: "email@domain.com"
-    }
+    },
+    validations: [
+      {
+        kind: "format",
+        value: "email",
+        message: 'Invalid email format',
+      },
+      {
+        kind: "required",
+        value: true,
+        message: "This field can't be blank",
+      },
+    ],
   },
   {
-    type: 'inputPassword',
-    schema: 'password',
+    component: 'inputPassword',
     label: 'Password',
     id: 'password',
+    type: "string",
     params: {
-      type: 'password',
       autoComplete: "current-password",
       placeholder: "xxxx-xxxx-xxxx"
-    }
+    },
+    validations: [
+      {
+        kind: "required",
+        value: true,
+        message: "This field can't be blank",
+      },
+      {
+        kind: "matches",
+        value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+        message: 'Invalid password, must contain at least 8 characters and at most 18 characters',
+      },
+    ]
   },
   {
-    type: 'submit',
+      component: 'checkbox',        
+      id: 'rememberMe',
+      type: "boolean",
+      params: {
+          label: 'Remember me',
+      }
+  },
+  {
+    component: 'submit',
+    id: 'submit',
     params: {
       text: 'Continue'
     }
-  },
-]
+  },]
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Invalid email format')
-    .required("This field can't be blank"),
-  password: Yup.string()
-    .required("This field can't be blank")
-    .min(7, 'Must contain at least 8 characters')
-    .max(18, 'Must contain at most 18 characters')
-    .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
-})
-
-export default (props) => {
-  const [error, setError] = useState(null)
-
-  const onSubmit = async (values, { setSubmitting }) => {
-    try {
-      const { email, password } = values
-      //... do login
-      setError(null)      
-    } catch (e) {
-      console.log(e)
-      setError(e)
+ const onSubmit = async (values) => {
+    const { email, password } = values
+    try { 
+      await myapi.submit({ email, password })
     }
-
-    setSubmitting(false)
+    catch(e) {
+      throw (new Error('Could not sign in: ', e.message))
+    }
+    return { message: t("Email validated") }  
   }
 
-  const values = {
-
-  }
-
-  return <div>      
-      <h1>Login</h1>            
+  return <>      
+      <h3>Login</h3>            
       <Formulaik
-        components={[FormulaikLocal,]}
-        values={values}
-        validationSchema={validationSchema}
+        components={[FormulaikLocal, FormulaikMui]}
+        values={values}        
         inputs={inputs}
         onSubmit={onSubmit}
-        error={error} />      
-    </div>
+         />      
+    </>
 }
+
 ```
+
+
+We give a few props to the `Formulaik` component:
+- `components={[FormulaikLocal, FormulaikMui]}`: a list of component libraries to pick the input components from. The order is important as Formulaik picks the first occurence it finds when searching libraries.
+- `values={values}`:  Formulaik the default values 
+- `inputs={inputs}`: the inputs list
+- `onSubmit={onSubmit}`: the submission handler
+
+Voilà. 
+
