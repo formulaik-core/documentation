@@ -151,6 +151,49 @@ This component adapts a Google Material UI (Mui) Text input to Formulaik.
 - It binds the current `value` the Mui component prop `checked`
 - It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange` and debounces it
 
+### `checkbox/index.js`
+```js
+import React from 'react'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+
+export default (props) => {
+  const { 
+    onValueChanged, 
+    disabled,
+    readOnly,
+    value, 
+    item: { 
+        label, 
+        id, 
+        params 
+        }} = props
+
+
+  return <div className="">
+    <FormControlLabel control={
+      <Checkbox
+        color="default"
+        disabled={disabled}
+        readOnly={readOnly}
+        {...params}
+        checked={value}
+        onChange={({ target: { checked } }) => {
+          onValueChanged(checked)
+        }}
+      />}
+      label={params.label ? params.label : label} />
+  </div>
+}
+```
+
+This component adapts a Google Material UI (Mui) Switch input to Formulaik.
+It is available as a free community components library on [Github](https://github.com/formulaik-community/formulaik-mui-react).
+- It forwards the `disabled` and the `readOnly` states to the Mui component
+- It forwards the rest of the `params` the Mui component for a pass-through customization
+- It binds the current `value` the Mui component prop `checked`
+- It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange`
+By doing these simple bindings and forwarding, this component has now a minimal Formulaik compatibility and can be used on any Formulaik form that references a component library that includes this component.
 
 ## Putting it all together
 
