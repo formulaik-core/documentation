@@ -86,13 +86,16 @@ export default ({}) => <div class={`
 import FormulaikMui from '@formulaik-community/react-mui'
 
 export default (props) => {
-  const onSubmit = async (values, { setSubmitting }) => {
-    try {
-      const { email, password } = values
-      //... do login      
-    } catch (e) {
-      console.log(e)      
+  
+ const onSubmit = async (values) => {
+    const { email, password } = values
+    try { 
+      await myapi.submit({ email, password })
     }
+    catch(e) {
+      throw (new Error('Could not sign in: ', e.message))
+    }
+    return { message: t("Email validated") }  
   }
 
   return <>      

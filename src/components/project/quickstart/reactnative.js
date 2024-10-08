@@ -77,23 +77,26 @@ export default ({}) => <div class={`
             4. Render forms and handle submit
           </p>
          
-            <CodeBlock language="jsx">
-{`import Formulaik from '@formulaik/react-native'
+          <CodeBlock language="jsx">
+{`import Formulaik from '@formulaik/react'
 import FormulaikPaper from '@formulaik-community/react-native-paper'
 import { Text } from 'react-native'
 
 export default (props) => {
-  const onSubmit = async (values, { setSubmitting }) => {
-    try {
-      const { email, password } = values
-      //... do login      
-    } catch (e) {
-      console.log(e)      
+  
+ const onSubmit = async (values) => {
+    const { email, password } = values
+    try { 
+      await myapi.submit({ email, password })
     }
+    catch(e) {
+      throw (new Error('Could not sign in: ', e.message))
+    }
+    return { message: t("Email validated") }  
   }
 
   return <>      
-      <Text>Login</Text>            
+      <Text>Login</Text>             
       <Formulaik
         components={[FormulaikPaper]}
         values={values}        
