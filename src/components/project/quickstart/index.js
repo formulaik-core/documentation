@@ -19,18 +19,7 @@ const NotAvailable = () =>
 
 
 export default ({ hideTitle = false }) => <div class={`                     
-        flex         
-        justify-center
-        `}>
-    <div class={`                        
-          md:max-w-2xl
-          max-w-sm
-          px-2            
-        `}>
-      <h2 className='text-4xl'>{`Quick start 🚀`}</h2>
-      <p className={`text-lg italic`}>
-            Let's build a login form with email and password inputs.
-      </p>
+        `}>          
       <Tabs>
         <TabItem value="React JS" label="React JS" default>
           <ReactView />
@@ -50,6 +39,5 @@ export default ({ hideTitle = false }) => <div class={`
         <TabItem value="VueJS" label="Vue JS">
           <NotAvailable />              
         </TabItem>
-    </Tabs>
-    </div>
+    </Tabs>  
   </div>

@@ -4,7 +4,6 @@ import TabItem from '@theme/TabItem'
 import CodeBlock from '@theme/CodeBlock'
 import convert from 'npm-to-yarn'
 
-
 export default (props) => {
 
     const npm = props.npm ? props.npm : convert(props.yarn, 'npm')

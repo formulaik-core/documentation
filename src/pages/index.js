@@ -5,7 +5,6 @@ import Framework from '@site/src/components/project/framework'
 import HomePageHeader from '../components/project/homePageHeader'
 import Sample from '../components/project/quickstart'
 import HomepageFeatures2 from '../components/project/homepageFeatures2'
-// import Pollination from '../components/project/pollination'
 import Manifest from '../components/project/manifest'
 import Decouple from '../components/project/decouple'
 
@@ -18,7 +17,22 @@ export default () => {
       <HomePageHeader />      
       <main className='pb-16'>        
         <Framework />
-        <Sample />
+        <div class={`                     
+          flex         
+          justify-center
+          `}>
+          <div class={`                        
+                md:max-w-2xl
+                max-w-sm
+                px-2            
+              `}>
+                <h2 className='text-4xl'>{`Quick start 🚀`}</h2>
+      <p className={`text-lg italic`}>
+            Let's build a login form with email and password inputs.
+      </p>
+            <Sample />
+          </div>
+        </div>        
         <Decouple />
         <HomepageFeatures2 />        
         {/* <Pollination />   */}
