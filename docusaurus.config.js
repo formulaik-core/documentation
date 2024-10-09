@@ -190,7 +190,7 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'guides/overview',
+            docId: 'guides/input/overview',
             position: 'left',
             label: 'Guides',
           },
