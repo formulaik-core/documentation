@@ -5,9 +5,11 @@ sidebar_position: 2
 # Terms and components
 
 ## Input
+
 An input is a JSON declaration for formulaik to show a component referenced by a the `component` key.
 
-### Illustration 
+### Illustration
+
 ```js
 const inputs = [
 {
@@ -71,46 +73,52 @@ const inputs = [
 ]
 ```
 
-* The input with the `id` "email" tells formulaik 
-    - to use the `component` with the `email` id
-    - to label the `component` *Email*
-    - to expect a `string` data type 
-    - to forward the `params` to the component, namely the *placeholder* customization
-    - to use the `validations` rules:
-      - `format`: make sure it's an email
-      - `required`: this field is required
+- The input with the `id` "email" tells formulaik
 
-* The input with the `id` *password* tells formulaik 
-    - to use the `component` with the `password` id
-    - to label the `component` *Password*
-    - to expect a `string` data type 
-    - to forward the `params` to the component, namely the *placeholder* and the *autoComplete* customizations
-    - to use the `validations` rules:      
-      - `required`: this field is required
-      - `matches`: this field matches the provided regex, if not, display the error message
+  - to use the `component` with the `email` id
+  - to label the `component` _Email_
+  - to expect a `string` data type
+  - to forward the `params` to the component, namely the _placeholder_ customization
+  - to use the `validations` rules:
+    - `format`: make sure it's an email
+    - `required`: this field is required
 
+- The input with the `id` _password_ tells formulaik
 
-* The input with the `id` *rememberMe* tells formulaik 
-    - to use the `component` with the `checkbox` id    
-    - to expect a `boolean` data type 
-    - to forward the `params` to the component, namely the *label* customizations
+  - to use the `component` with the `password` id
+  - to label the `component` _Password_
+  - to expect a `string` data type
+  - to forward the `params` to the component, namely the _placeholder_ and the _autoComplete_ customizations
+  - to use the `validations` rules:
+    - `required`: this field is required
+    - `matches`: this field matches the provided regex, if not, display the error message
 
-* The input with the `id` *submit* tells formulaik 
-    - to use the `component` with the `submit` id        
-    - to forward the `params` to the component, namely the *text* (label) customizations
-    
+- The input with the `id` _rememberMe_ tells formulaik
+
+  - to use the `component` with the `checkbox` id
+  - to expect a `boolean` data type
+  - to forward the `params` to the component, namely the _label_ customizations
+
+- The input with the `id` _submit_ tells formulaik
+
+  - to use the `component` with the `submit` id
+  - to forward the `params` to the component, namely the _text_ (label) customizations
+
 As you can see the inputs come as an ordered array and are fed to your Formulaik engine of choice.
 They are:
+
 - Platform agnostic
 - Language agnostic
 
 This means they can easily be store in a shared repository and shared across your teams.
 
 ## Component
+
 A `component` is an input wrapper that adapts an actual input component to the Formulaik api.
 
-### Illustration 
-In the previous example we used a checkbox component, here is how we declare its component. 
+### Illustration
+
+In the previous example we used a checkbox component, here is how we declare its component.
 
 ```js
 import React from 'react'
@@ -149,22 +157,25 @@ export default (props) => {
 
 This component adapts a Google Material UI (Mui) Switch input to Formulaik.
 It is available as a free community components library on [Github](https://github.com/formulaik-community/formulaik-mui-react).
+
 - It forwards the `disabled` and the `readOnly` states to the Mui component
 - It forwards the rest of the `params` the Mui component for a pass-through customization
 - It binds the current `value` the Mui component prop `checked`
 - It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange`
-By doing these simple bindings and forwarding, this component has now a minimal Formulaik compatibility and can be used on any Formulaik form that references a component library that includes this component.
+  By doing these simple bindings and forwarding, this component has now a minimal Formulaik compatibility and can be used on any Formulaik form that references a component library that includes this component.
 
 ## Component Library
+
 A Formulaik component library is a set of Formulaik compatible inputs each with a unique key.
-Usually it comes in a form of a repository folder with each component 
-Formulaik's strength lies in the modularity of the components library. 
+Usually it comes in a form of a repository folder with each component
+Formulaik's strength lies in the modularity of the components library.
 You can quickly switch from one component to the other by referring different component libraries.
 
 ### Structure
+
 A component library is basically a function that returns a component when given a key (the `component` part of an `input`).
 
-Nevertheless it can be advantageous to follow a common organization across the components libraries to ease debugging, improve readability and copy or paste components. 
+Nevertheless it can be advantageous to follow a common organization across the components libraries to ease debugging, improve readability and copy or paste components.
 This is the recommended structure:
 
 ```bash
@@ -176,12 +187,15 @@ This is the recommended structure:
 │   ├──── index.js
 ```
 
-### Illustration 
+### Illustration
+
 As mentioned before, we are using the Mui components library available as a free community components library on [Github](https://github.com/formulaik-community/formulaik-mui-react).
 
 #### First approach
+
 One way to serve the components is to make a basic switch on the key value and return the existing component.
 For instance, for our inputs, we would have:
+
 ```js
 import Input from './input'
 import Submit from './submit'
@@ -204,7 +218,9 @@ export default (props) => {
   }
 }
 ```
+
 #### Optimization
+
 An alternative is to use a lazy loading approach with tools like `@loadable` for instance:
 
 ```js
@@ -234,5 +250,6 @@ const keys = [
 ```
 
 ## Validator
+
 A validator is a JSON representation of validation rules used by your formulaik engine.
 #TODO
