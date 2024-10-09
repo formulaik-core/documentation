@@ -7,74 +7,88 @@ sidebar_position: 0
 ![logo](/img/icon_xs.svg)
 
 ## Motivation
+
 Forms are hard. They are tough to get right and maintain. I usually end up with dozens of form artefacts spread across our projects, from inputs, styling, validation, submission logic, user input behavior, etc.
-I used Formik as my main form management library, it is a great way for writing form inputs and manage their lifecycle. 
+I used Formik as my main form management library, it is a great way for writing form inputs and manage their lifecycle.
 But what if we want to reuse the whole reasonning that goes with creating a one, fully functional form, in the rest of our app, on other platforms or share them across teams?
 The answer to that question if what led to the creation of **Formulaik**.
 
 ## What is Formulaik?
+
 Formulaik aims to simplify form building across various front-end frameworks.
 Formulaik is not a form library itself, it defines a protocol for defining form inputs as a sole source of truth (data type, behaviour, validation) in json.
 That definition can be interpreted by any formulaik engine on any compatible front-end framework.
 Any input declares the component type it needs to collect the user's input.
-Any Formulaik engine renders the said input by requesting the component from libraries (components) 
+Any Formulaik engine renders the said input by requesting the component from libraries (components)
 and renders them with a standardized api.
 
-
-
 ## Principles
+
 ### Convention over configuration
+
 <i>Convention over configuration (also known as coding by convention) is a software design paradigm used by software frameworks that attempts to decrease the number of decisions that a developer using the framework is required to make without necessarily losing flexibility and don't repeat yourself (DRY) principles.</i>
 
 <br />
+
 <a href='https://en.wikipedia.org/wiki/Convention_over_configuration'>
 Wikipedia
 </a>
 
 ### Break the Form into Small Reusable Components
-*One of the fundamental principles of React is the concept of componentization. Apply this principle to your forms by breaking them down into small, reusable components. Each component should encapsulate a specific piece of the form’s functionality. This approach makes your code more modular and easier to maintain, and when combined with TypeScript, it enables strong type checking for each component.*
+
+_One of the fundamental principles of React is the concept of componentization. Apply this principle to your forms by breaking them down into small, reusable components. Each component should encapsulate a specific piece of the form’s functionality. This approach makes your code more modular and easier to maintain, and when combined with TypeScript, it enables strong type checking for each component._
 [Read more](https://orizens.com/blog/best_practices_for_developing_complex_form-based_apps_with_react_hook_form_and_typescript_support/)
 
 ### Standardize Input Interfaces: “value” and “onChange”
-*To ensure consistency and compatibility, follow the standard input interface of providing “value” and “onChange” handlers for your form inputs. This approach allows React Hook Form to seamlessly integrate with your components while providing TypeScript with the necessary information to perform type checking.*
+
+_To ensure consistency and compatibility, follow the standard input interface of providing “value” and “onChange” handlers for your form inputs. This approach allows React Hook Form to seamlessly integrate with your components while providing TypeScript with the necessary information to perform type checking._
 [Read more](https://orizens.com/blog/best_practices_for_developing_complex_form-based_apps_with_react_hook_form_and_typescript_support/)
 
-
 ### Don't repeat yourself (DRY)
+
 <i>"Don't repeat yourself" (DRY) is a principle of software development aimed at reducing repetition of information which is likely to change, replacing it with abstractions that are less likely to change, or using data normalization which avoids redundancy in the first place.</i>
+
 <br />
+
 <a href='https://en.wikipedia.org/wiki/Don%27t_repeat_yourself'>
 Wikipedia
 </a>
 
-
 ### Extreme refactoring
+
 <i>Refactor mercilessly</i>
+
 <br/>
+
 Formulaik takes refactoring to the extreme by decluttering the app from the underlying features that different models use into a single package called feature.
-Contrarily to a middleware or an extension, a feature is a high level, conventioned, Predictable and versioned piece of code that provides a functional feature. 
+Contrarily to a middleware or an extension, a feature is a high level, conventioned, Predictable and versioned piece of code that provides a functional feature.
 Extreme refactoring with features yield extreme reusability from the ground-up by instilling a feature driven culture in your teams.
+
 <br/>
+
 <i>Variable → Function → Class → Module → Extension → <b>Feature</b></i>
+
 <br/>
+
 <a href='http://www.extremeprogramming.org/rules/refactor.html'>
 Extreme refactoring
 </a>
 
 ### Functional programming
+
 (over object programming)
 <i>Functional programming is a paradigm of building computer programs using expressions and functions without mutating state and data.
 By respecting these restrictions, functional programming aims to write code that is clearer to understand and more bug resistant.</i>
 
-
 ### Other influences
+
 - <a href='https://blog.ploeh.dk/2021/06/14/new-book-code-that-fits-in-your-head/'><i>Code That Fits in Your Head</i></a> book by Mark Seemann
 - Formik
-
 
 ## Should you use Formulaik?
 
 Formulaik is likely a good fit for you if:
+
 - You want to quickly build a form for your project
 - You want to reuse an input over different forms without copying it over and over
 - You want to have clean, concise, readable and maintainable forms across your apps
