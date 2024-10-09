@@ -155,6 +155,8 @@ It is available as a free community components library on [Github](https://githu
 - It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange`
 By doing these simple bindings and forwarding, this component has now a minimal Formulaik compatibility and can be used on any Formulaik form that references a component library that includes this component.
 
+[Guide](../guides/componentlibrary/inputcomponent)
+
 ## Component Library
 A Formulaik component library is a set of Formulaik compatible inputs each with a unique key.
 Usually it comes in a form of a repository folder with each component 
@@ -204,35 +206,7 @@ export default (props) => {
   }
 }
 ```
-#### Optimization
-An alternative is to use a lazy loading approach with tools like `@loadable` for instance:
 
-```js
-import loadable from '@loadable/component'
-
-export default (props) => {
-    const { type } = props
-    if (!keys.includes(type)) {
-        return null
-    }
-    try {
-        const Component = loadable(props => import(`./${type}`), {
-            cacheKey: props => type,
-        })
-        return Component
-    } catch (e) {
-        return null
-    }
-}
-
-const keys = [   
-    'submit',    
-    'input',
-    'inputPassword',        
-    'checkbox'    
-]
-```
-
-## Validator
-A validator is a JSON representation of validation rules used by your formulaik engine.
-#TODO
+## Validations
+A validation is a JSON representation of validation rules used by your formulaik engine.
+[Guide](../guides/input/validations)

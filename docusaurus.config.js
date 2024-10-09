@@ -200,12 +200,12 @@ const config = {
           //   position: 'left',
           //   label: 'Tutorials',
           // },
-          {
-            type: 'doc',
-            docId: 'reference/overview',
-            position: 'left',
-            label: 'Reference',
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'reference/overview',
+          //   position: 'left',
+          //   label: 'Reference',
+          // },
           {
             type: 'docsVersionDropdown',
             position: 'right',

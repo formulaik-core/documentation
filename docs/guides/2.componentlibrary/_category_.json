@@ -1,6 +1,6 @@
 {
-  "label": "Library",
-  "position": 4,
+  "label": "Component library",
+  "position": 2,
   "link": {
     "type": "generated-index"
   }
