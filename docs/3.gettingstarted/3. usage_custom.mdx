@@ -7,12 +7,13 @@ sidebar_position: 3
 ## Create your own components library
 
 A Formulaik [component library](../concepts/terms#component-library) is a set of Formulaik compatible inputs each with a unique key.
-Formulaik's strength lies in the modularity of the components library. 
+Formulaik's strength lies in the modularity of the components library.
 You can quickly switch from one component to the other by referring different component libraries.
 
 In this guide we will create a local component library for the `input`, `inputPassword`, `submit` and `checkbox` components.
 
 ### Structure
+
 A component library is basically a function that returns a component when given a key (the `component` part of an `input`).
 We will use the recommended structure in this tutorial:
 
@@ -28,6 +29,7 @@ We will use the recommended structure in this tutorial:
 │   ├── checkbox
 │   ├──── index.js
 ```
+
 An input component is standardized, it follows the [input interface api](../reference/react/input.mdx)
 
 ### `index.js`
@@ -55,7 +57,8 @@ export default (props) => {
 }
 ```
 
-### *Input* component
+### _Input_ component
+
 This component is the default one line text input component.
 
 At path: `input/index.js`:
@@ -145,13 +148,15 @@ export default (props) => {
   />
 }
 ```
+
 This component adapts a Google Material UI (Mui) Text input to Formulaik.
+
 - It forwards the `disabled` state to the Mui component
 - It forwards the rest of the `params` the Mui component for a pass-through customization
 - It binds the current `value` the Mui component prop `checked`
 - It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange` and debounces it
 
-### *Checkbox* component
+### _Checkbox_ component
 
 At path: `checkbox/index.js`:
 
@@ -192,11 +197,12 @@ export default (props) => {
 
 This component adapts a Google Material UI (Mui) Switch input to Formulaik.
 It is available as a free community components library on [Github](https://github.com/formulaik-community/formulaik-mui-react).
+
 - It forwards the `disabled` and the `readOnly` states to the Mui component
 - It forwards the rest of the `params` the Mui component for a pass-through customization
 - It binds the current `value` the Mui component prop `checked`
 - It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange`
-By doing these simple bindings and forwarding, this component has now a minimal Formulaik compatibility and can be used on any Formulaik form that references a component library that includes this component.
+  By doing these simple bindings and forwarding, this component has now a minimal Formulaik compatibility and can be used on any Formulaik form that references a component library that includes this component.
 
 ## Putting it all together
 
@@ -288,15 +294,13 @@ export default (props) => {
          />      
     </>
 }
-
 ```
 
-
 We give a few props to the `Formulaik` component:
+
 - `components={[FormulaikLocal, FormulaikMui]}`: a list of component libraries to pick the input components from. The order is important as Formulaik picks the first occurence it finds when searching libraries.
-- `values={values}`:  Formulaik the default values 
+- `values={values}`:  Formulaik the default values
 - `inputs={inputs}`: the inputs list
 - `onSubmit={onSubmit}`: the submission handler
 
-Voilà. 
-
+Voilà.
