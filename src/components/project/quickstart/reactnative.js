@@ -13,7 +13,7 @@ export default ({}) => <div class={`
           2. Define inputs   
           </p>        
           <CodeBlock language="jsx">
-{`const inputs = [
+          {`const inputs = [
   {
     component: 'input',
     id: 'email',
@@ -23,16 +23,18 @@ export default ({}) => <div class={`
       type: 'email',
       placeholder: "email@domain.com"
     },
-    validation: {
-      format: {
+    validations: [
+      {
+        kind: "format",
         value: "email",
         message: 'Invalid email format',
       },
-      required: {
+      {
+        kind: "required",
         value: true,
         message: "This field can't be blank",
       },
-    }
+    ],
   },
   {
     component: 'inputPassword',
@@ -44,16 +46,18 @@ export default ({}) => <div class={`
       autoComplete: "current-password",
       placeholder: "xxxx-xxxx-xxxx"
     },
-    validation: {
-      matches: {
+    validations: [
+      {
+        kind: "matches",
         value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
         message: 'Invalid password, must contain at least 8 characters and at most 18 characters',
       },
-      required: {
+      {
+        kind: "required",
         value: true,
         message: "This field can't be blank",
       },
-    }
+    ]
   },
   {
     component: 'submit',
@@ -83,7 +87,7 @@ import FormulaikPaper from '@formulaik-community/react-native-paper'
 import { Text } from 'react-native'
 
 export default (props) => {
-  
+
  const onSubmit = async (values) => {
     const { email, password } = values
     try { 

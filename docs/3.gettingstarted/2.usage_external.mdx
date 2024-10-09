@@ -107,8 +107,9 @@ They are:
 
 
 ## Declare values
-`Values` are the default values passed to Formulaik. You need to match the ids provided in the inputs section.
-
+`values` are the default values passed to Formulaik. 
+You need to match the ids provided in the inputs section.
+Here is an example with default values being retrieved from cookies storage:
 ```js
 const values = {
   email: cookies.get('email'),
@@ -116,6 +117,17 @@ const values = {
   rememberMe: cookies.get('rememberMe'),
 }
 ```
+
+We will use empty values for this guide:
+```js
+const values = {
+  email: "",
+  password: "",
+  rememberMe: false,
+}
+```
+
+Values can also be undefined.
 
 ## Handle submission
 Formulaik was built to make form submission seamless and easy.
@@ -142,14 +154,11 @@ When `onSubmit` is called a few things happen under the hood:
 
 ## Putting it all together
 
-
 ```js
 import Formulaik from '@formulaik/react'
 import FormulaikMui from '@formulaik-community/react-mui'
 
-export default (props) => {
-  
-  const inputs = [
+const inputs = [
   {
     component: 'input',
     id: 'email',
@@ -208,7 +217,8 @@ export default (props) => {
       text: 'Continue'
     }
   },]
-
+  
+export default (props) => {
  const onSubmit = async (values) => {
     const { email, password } = values
     try { 
@@ -218,6 +228,12 @@ export default (props) => {
       throw (new Error('Could not sign in: ', e.message))
     }
     return { message: t("Email validated") }  
+  }
+
+  const values = {
+    email: "",
+    password: "",
+    rememberMe: false,
   }
 
   return <>      
@@ -230,7 +246,6 @@ export default (props) => {
          />      
     </>
 }
-
 ```
 
 We give a few props to the `Formulaik` component:

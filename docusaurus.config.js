@@ -216,6 +216,11 @@ const config = {
             position: 'right',
             label: 'FAQ',
           },
+          {
+            href: 'https://adoucoure.com/formulaik',
+            position: 'right',            
+            label: 'Blog'            
+          },
           // {
           //   type: 'doc',
           //   docId: 'commands/install',
