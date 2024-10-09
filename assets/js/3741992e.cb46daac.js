@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkformulaik=self.webpackChunkformulaik||[]).push([[4193],{84197:a=>{a.exports=JSON.parse('{"label":"formulaik","permalink":"/documentation/blog/tags/formulaik","allTagsPath":"/documentation/blog/tags","count":1}')}}]);
