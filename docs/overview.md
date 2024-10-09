@@ -4,14 +4,12 @@ sidebar_position: 1
 
 # Overview
 
-
-
 ![logo](/img/icon_xs.svg)
-
 
 Formulaik is built from the ground up to be easy to use, convention driven and extensible so that it's easy to kickstart a project and maintain it. It's api makes it easy to fetch steps remotely and execute them with powerful side effects, transformers and validators.
 
 ## Formulaik documentation
+
 This is the official documentation site for Formulaik. Content on this site is sourced in GitHub. For more information, see [Contributing to Formulaik](./contributing.md) documentation.
 
 This site is based on [Docusaurus](https://docusaurus.io).

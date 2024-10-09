@@ -1,0 +1,81 @@
+---
+sidebar_position: 2
+---
+
+import BashTabs from '@site/src/components/generic/bashTabs'
+import CodeBlock from '@theme/CodeBlock'
+
+# Multi inputs
+
+By default Formulaik renders inputs vertically and gives a full width to each one of them. 
+While this might satisfy most of the use cases, you might want to use a custom layout for specific fields.
+
+For instance this code will put the `email` and `password` components on the same row using tailwind:
+
+```js
+const inputs = [
+    {
+      isMulti: true,
+      className: 'flex space-x-2',
+      items: [
+        {
+            component: 'input',
+            id: 'email',
+            label: 'Email',
+            type: "string",
+            params: {        
+                placeholder: "email@domain.com"
+            },
+            validations: [
+                {
+                kind: "format",
+                value: "email",
+                message: 'Invalid email format',
+                },
+                {
+                kind: "required",
+                value: true,
+                message: "This field can't be blank",
+                },
+            ],
+        },
+        {
+            component: 'inputPassword',
+            label: 'Password',
+            id: 'password',
+            type: "string",
+            params: {
+                autoComplete: "current-password",
+                placeholder: "xxxx-xxxx-xxxx"
+            },
+            validations: [
+                {
+                kind: "required",
+                value: true,
+                message: "This field can't be blank",
+                },
+                {
+                kind: "matches",
+                value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+                message: 'Invalid password, must contain at least 8 characters and at most 18 characters',
+                },
+            ]
+        },],
+    },
+    {
+        component: 'checkbox',        
+        id: 'rememberMe',
+        type: "boolean",
+        params: {
+            label: 'Remember me',
+        }
+    },
+    {
+      component: 'submit',
+      id: 'submit',
+      params: {
+        text: 'Continue'
+      }
+    },
+]
+```

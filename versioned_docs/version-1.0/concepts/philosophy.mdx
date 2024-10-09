@@ -7,9 +7,9 @@ sidebar_position: 0
 ![logo](/img/icon_xs.svg)
 
 ## Motivation
-Forms are hard. They are tough to get right and maintain. We usually end up with dozens of form artefacts spread across our projects, from inputs, styling, validation, submission logic, user input behavior, etc.
-We used Formik as our main form management library, it is a great way for writing form inputs and manage their lifecycle. 
-But what if we want to reuse the whole reasonning that goes with creating a one, fully functional form, to other views in our app?
+Forms are hard. They are tough to get right and maintain. I usually end up with dozens of form artefacts spread across our projects, from inputs, styling, validation, submission logic, user input behavior, etc.
+I used Formik as my main form management library, it is a great way for writing form inputs and manage their lifecycle. 
+But what if we want to reuse the whole reasonning that goes with creating a one, fully functional form, in the rest of our app, on other platforms or share them across teams?
 The answer to that question if what led to the creation of **Formulaik**.
 
 ## What is Formulaik?
@@ -17,7 +17,8 @@ Formulaik aims to simplify form building across various front-end frameworks.
 Formulaik is not a form library itself, it defines a protocol for defining form inputs as a sole source of truth (data type, behaviour, validation) in json.
 That definition can be interpreted by any formulaik engine on any compatible front-end framework.
 Any input declares the component type it needs to collect the user's input.
-Any Formulaik engine renders the said input by requesting the component from libraries (components) and rendering them with a standardized api.
+Any Formulaik engine renders the said input by requesting the component from libraries (components) 
+and renders them with a standardized api.
 
 
 
@@ -73,6 +74,7 @@ By respecting these restrictions, functional programming aims to write code that
 
 ## Should you use Formulaik?
 
-Formulaik is likely a good fit for you if
+Formulaik is likely a good fit for you if:
 - You want to quickly build a form for your project
 - You want to reuse an input over different forms without copying it over and over
+- You want to have clean, concise, readable and maintainable forms across your apps

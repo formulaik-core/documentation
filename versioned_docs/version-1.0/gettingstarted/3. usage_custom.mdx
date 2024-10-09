@@ -1,0 +1,302 @@
+---
+sidebar_position: 3
+---
+
+# Use your own components library
+
+## Create your own components library
+
+A Formulaik [component library](../concepts/terms#component-library) is a set of Formulaik compatible inputs each with a unique key.
+Formulaik's strength lies in the modularity of the components library. 
+You can quickly switch from one component to the other by referring different component libraries.
+
+In this guide we will create a local component library for the `input`, `inputPassword`, `submit` and `checkbox` components.
+
+### Structure
+A component library is basically a function that returns a component when given a key (the `component` part of an `input`).
+We will use the recommended structure in this tutorial:
+
+```bash
+├── formulaik-local-library
+│   ├── index.js
+│   ├── input
+│   ├──── index.js
+│   ├── inputPassword
+│   ├──── index.js
+│   ├── submit
+│   ├──── index.js
+│   ├── checkbox
+│   ├──── index.js
+```
+An input component is standardized, it follows the [input interface api](../reference/react/input.mdx)
+
+### `index.js`
+
+```js
+import Input from './input'
+import Submit from './submit'
+import Checkbox from './checkbox'
+import InputPassword from './inputPassword'
+
+export default (props) => {
+  const { type } = props
+  switch (type) {
+    case 'input':
+      return Input  
+    case 'inputPassword':
+      return InputPassword
+    case 'submit':
+      return Submit    
+    case 'checkbox':
+      return Checkbox    
+    default:
+      return null
+  }
+}
+```
+
+### *Input* component
+This component is the default one line text input component.
+
+At path: `input/index.js`:
+
+```js
+import { useCallback, useEffect, useState, } from 'react'
+import TextField from '@mui/material/TextField'
+import { useDebouncedCallback } from 'use-debounce'
+
+export default (props) => {
+  const {
+    value,
+    error,
+    disabled,
+    onValueChanged,
+    item: {
+      layoutMode = 'form',
+      label,
+      params = {},
+      id }
+  } = props
+
+  const {
+    placeholder,
+    inputDelay = 1000,
+    className = '',
+    multiline = true,
+    inputPropsStyle = {},
+    inputLabelPropsStyle = {},
+    variant = "outlined" } = params
+
+  const [innerValue, setInnerValue] = useState(value ? value : '')
+
+  useEffect(() => {
+    setInnerValue(value ? value : '')
+  }, [value])
+
+  const debouncedHandleOnChange = useDebouncedCallback(
+    (event) => {
+      const value = event.target.value
+      onValueChanged(value)
+      console.log('textArea debouncedHandleOnChange', value)
+    },
+    inputDelay
+  )
+
+  const handleOnChange = useCallback((event) => {
+    event.persist()
+    const newValue = event.target.value
+    setInnerValue(newValue)
+    debouncedHandleOnChange(event)
+    console.log('textArea handleOnChange', value)
+  }, [])
+
+  const layoutModeProps = () => {
+    switch (layoutMode) {
+      default:
+      case 'form': {
+        return {
+
+        }
+      }
+      case 'inline': {
+        return {
+          variant: "standard",
+        }
+      }
+    }
+  }
+
+  return <TextField
+    variant={variant}
+    fullWidth
+    disabled={props.disabled}
+    inputProps={{
+      style: {
+        ...inputPropsStyle,
+      }
+    }}
+    InputLabelProps={{ style: inputLabelPropsStyle }}
+    value={innerValue}
+    multiline={multiline}
+    className={`transition-all ease-in-out duration-1000 ${error ? 'bg-red-50' : ''} ${className}`} 
+    onChange={handleOnChange}
+    {...layoutModeProps()}
+    {...params}
+  />
+}
+```
+This component adapts a Google Material UI (Mui) Text input to Formulaik.
+- It forwards the `disabled` state to the Mui component
+- It forwards the rest of the `params` the Mui component for a pass-through customization
+- It binds the current `value` the Mui component prop `checked`
+- It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange` and debounces it
+
+### *Checkbox* component
+
+At path: `checkbox/index.js`:
+
+```js
+import React from 'react'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+
+export default (props) => {
+  const { 
+    onValueChanged, 
+    disabled,
+    readOnly,
+    value, 
+    item: { 
+        label, 
+        id, 
+        params 
+        }} = props
+
+
+  return <div className="">
+    <FormControlLabel control={
+      <Checkbox
+        color="default"
+        disabled={disabled}
+        readOnly={readOnly}
+        {...params}
+        checked={value}
+        onChange={({ target: { checked } }) => {
+          onValueChanged(checked)
+        }}
+      />}
+      label={params.label ? params.label : label} />
+  </div>
+}
+```
+
+This component adapts a Google Material UI (Mui) Switch input to Formulaik.
+It is available as a free community components library on [Github](https://github.com/formulaik-community/formulaik-mui-react).
+- It forwards the `disabled` and the `readOnly` states to the Mui component
+- It forwards the rest of the `params` the Mui component for a pass-through customization
+- It binds the current `value` the Mui component prop `checked`
+- It binds the Formulaik provided `onValueChanged` to the Mui component prop `onChange`
+By doing these simple bindings and forwarding, this component has now a minimal Formulaik compatibility and can be used on any Formulaik form that references a component library that includes this component.
+
+## Putting it all together
+
+```js
+import Formulaik from '@formulaik/react'
+import FormulaikMui from '@formulaik-community/react-mui'
+import FormulaikLocal from 'components/formulaik-local-library'
+
+export default (props) => {
+  
+  const inputs = [
+  {
+    component: 'input',
+    id: 'email',
+    label: 'Email',
+    type: "string",
+    params: {        
+      placeholder: "email@domain.com"
+    },
+    validations: [
+      {
+        kind: "format",
+        value: "email",
+        message: 'Invalid email format',
+      },
+      {
+        kind: "required",
+        value: true,
+        message: "This field can't be blank",
+      },
+    ],
+  },
+  {
+    component: 'inputPassword',
+    label: 'Password',
+    id: 'password',
+    type: "string",
+    params: {
+      autoComplete: "current-password",
+      placeholder: "xxxx-xxxx-xxxx"
+    },
+    validations: [
+      {
+        kind: "required",
+        value: true,
+        message: "This field can't be blank",
+      },
+      {
+        kind: "matches",
+        value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+        message: 'Invalid password, must contain at least 8 characters and at most 18 characters',
+      },
+    ]
+  },
+  {
+      component: 'checkbox',        
+      id: 'rememberMe',
+      type: "boolean",
+      params: {
+          label: 'Remember me',
+      }
+  },
+  {
+    component: 'submit',
+    id: 'submit',
+    params: {
+      text: 'Continue'
+    }
+  },]
+
+ const onSubmit = async (values) => {
+    const { email, password } = values
+    try { 
+      await myapi.submit({ email, password })
+    }
+    catch(e) {
+      throw (new Error('Could not sign in: ', e.message))
+    }
+    return { message: t("Email validated") }  
+  }
+
+  return <>      
+      <h3>Login</h3>            
+      <Formulaik
+        components={[FormulaikLocal, FormulaikMui]}
+        values={values}        
+        inputs={inputs}
+        onSubmit={onSubmit}
+         />      
+    </>
+}
+
+```
+
+
+We give a few props to the `Formulaik` component:
+- `components={[FormulaikLocal, FormulaikMui]}`: a list of component libraries to pick the input components from. The order is important as Formulaik picks the first occurence it finds when searching libraries.
+- `values={values}`:  Formulaik the default values 
+- `inputs={inputs}`: the inputs list
+- `onSubmit={onSubmit}`: the submission handler
+
+Voilà. 
+

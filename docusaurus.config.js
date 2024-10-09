@@ -178,7 +178,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'gettingstarted/react/installation',
+            docId: 'gettingstarted/installation',
             position: 'left',
             label: 'Getting started',
           },
@@ -202,7 +202,7 @@ const config = {
           // },
           {
             type: 'doc',
-            docId: 'reference/formulaik',
+            docId: 'reference/overview',
             position: 'left',
             label: 'Reference',
           },

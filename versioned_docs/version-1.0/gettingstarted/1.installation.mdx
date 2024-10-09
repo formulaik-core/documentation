@@ -1,0 +1,26 @@
+---
+sidebar_position: 1
+---
+
+import BashTabs from '@site/src/components/generic/bashTabs'
+import CodeBlock from '@theme/CodeBlock'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+# Installation
+
+Formulaik works well with the React component system. Isolating the different inputs is easy and straightforward.
+
+> Both the React and the React-Native versions use the [Formik](https://formik.org) library under the hood for handling the forms. Formik is the world's most popular open source form library for React and React Native.
+
+<Tabs>
+    <TabItem value="React JS" label="React JS" default>
+        <BashTabs npm={`npm install @formulaik/react`} />
+    </TabItem>
+    <TabItem value="React Native" label="React Native">
+        <BashTabs npm={`npm install @formulaik/react-native`} />
+    </TabItem>
+</Tabs>
+
+## Requirements 
+- React environment: Tested on React 17+
