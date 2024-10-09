@@ -1,0 +1,41 @@
+---
+sidebar_position: 2
+---
+
+import BashTabs from '@site/src/components/generic/bashTabs'
+import CodeBlock from '@theme/CodeBlock'
+
+# Use @loadable in input libraries
+
+An alternative is to use a lazy loading approach with tools like `@loadable` for instance:
+
+
+```jsx
+import Formulaik from '@formulaik/react'
+import FormulaikLocal from 'components/shared/formulaik-library'
+import * as Yup from 'yup'
+```
+
+```js
+import loadable from '@loadable/component'
+const keys = [        
+    'submit',    
+    'input',            
+    'textArea',
+]
+
+export default (props) => {
+    const { type } = props
+    if (!keys.includes(type)) {
+        return null
+    }
+    try {
+        const Component = loadable(props => import(`./${type}`), {
+            cacheKey: props => type,
+        })
+        return Component
+    } catch (e) {
+        return null
+    }
+}
+```
