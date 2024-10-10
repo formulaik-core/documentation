@@ -64,7 +64,7 @@ export default () => {
             </Link>
             <Link
               className="button button--secondary button--lg"
-              to="/docs/concepts/philosophy">
+              to="/docs/guides/gettingstarted/installation">
               Guides
             </Link>
           </div>

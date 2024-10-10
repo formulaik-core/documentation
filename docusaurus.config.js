@@ -178,7 +178,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'gettingstarted/installation',
+            docId: 'guides/gettingstarted/installation',
             position: 'left',
             label: 'Getting started',
           },
