@@ -7,7 +7,7 @@ export default ({}) => <div class={`
           <p className={`text-lg font-bold`}>
             1. Install formulaik and a component library
           </p>
-          <BashTabs npm={`npm install @formulaik/react-native @formulaik-community/react-native-paper`} />          
+          <BashTabs npm={`npm install @formulaik/react-native @formulaik-community/react-native-elements`} />          
          
           <p className={`text-lg font-bold`}>
           2. Define inputs   
@@ -83,7 +83,7 @@ export default ({}) => <div class={`
          
           <CodeBlock language="jsx">
 {`import Formulaik from '@formulaik/react'
-import FormulaikPaper from '@formulaik-community/react-native-paper'
+import FormulaikElements from '@formulaik-community/react-native-elements'
 import { Text } from 'react-native'
 
 export default (props) => {
@@ -102,7 +102,7 @@ export default (props) => {
   return <>      
       <Text>Login</Text>             
       <Formulaik
-        components={[FormulaikPaper]}
+        components={[FormulaikElements]}
         values={values}        
         inputs={inputs}
         onSubmit={onSubmit}
