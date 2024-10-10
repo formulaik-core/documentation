@@ -210,17 +210,17 @@ const config = {
             type: 'docsVersionDropdown',
             position: 'right',
           },
-          {
-            type: 'doc',
-            docId: 'faq',
-            position: 'right',
-            label: 'FAQ',
-          },
-          {
-            href: 'https://adoucoure.com/formulaik',
-            position: 'right',            
-            label: 'Blog'            
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'faq',
+          //   position: 'right',
+          //   label: 'FAQ',
+          // },
+          // {
+          //   href: 'https://adoucoure.com/formulaik',
+          //   position: 'right',            
+          //   label: 'Blog'            
+          // },
           // {
           //   type: 'doc',
           //   docId: 'commands/install',
