@@ -14,7 +14,7 @@ require('dotenv').config()
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Formulaik',
-  tagline: 'A feature oriented Node JS framework',
+  tagline: 'Open source initiative for defining cross-platform forms, enabling reusable components in a JSON based declarative approach.',
   url: 'https://formulaik.github.io',
   baseUrl: '/documentation',
   // GitHub pages deployment config.
@@ -194,6 +194,12 @@ const config = {
             position: 'left',
             label: 'Guides',
           },
+          {
+            type: 'doc',
+            docId: 'ecosystem/react',
+            position: 'left',
+            label: 'Packages',
+          },
           // {
           //   type: 'doc',
           //   docId: 'tutorials/login',
@@ -339,13 +345,13 @@ const config = {
           //   ],
           // },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Formulaik Community. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Formulaik. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      metadata: [{ name: 'formulaik-parse', content: 'formulaik, parse-server, nodejs' }],
+      metadata: [{ name: 'formulaik', content: 'formulaik, formik, form' }],
     }),
 };
 

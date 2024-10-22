@@ -1,0 +1,32 @@
+# Motivation
+
+![logo](/img/icon_xs.svg)
+
+A few years ago I worked on a form-heavy React web app. Most of the team's job revolved around creating compelling, fast and compliant forms on multiple views. We used the Formik library as it is the clear leader on the React market. Furthermore it supported React-native for which we had to be future-proof. While the forms worked well, I was deeply dissatisfied with the almost-impossible to avoid spaghetti code spread across the app, indeed a form requires a ton of components:
+
+* validation: a necessary set of rules by which your forms should abide before their values are sent to the server
+* initial values
+* input layouts
+* error management
+* form submission
+* styling
+* fields formatting
+
+Forms are code-entropy-prone, and to that date there were nothing on the market to my knowledge that allowed a clean separation between the "what we want as a form?" (behaviour, validations, rules: declarative) and the "how do we implement it?" (inputs, layout, error management: framework components). Furthermore, how do our forms translate when we move to React-Native, or iOS / Android in the future? Wouldn't it be nice to declare what we want as a form in terms of features and let each platform run them?
+
+That's why I came up with Formulaik. Is is a platform agnostic framework form builder that relies on
+
+* a declaration of the form's inputs entirely written in JSON
+* a Formulaik engine, written per platform that ingests the inputs array
+* a set of input components that render the inputs per platform and handle their own status based on the desired behaviour defined in the inputs
+
+That is Formulaik's architecture in a nutshell: more than a framework, it is a contract for defining universal forms and delay their implementation on subsequent platforms using an engine and input components.
+
+Best of all,
+
+* it is open source 🎉, free to use
+* it already has engines in React and React-Native, meaning you can create your React full stack forms in JSON right away: https://github.com/formulaik-core/react and https://github.com/formulaik-core/react-native
+* it has a few input component libraries using popular component libraries like Material UI (https://github.com/formulaik-community/formulaik-mui-react) or React-Native elements (https://github.com/formulaik-community/formulaik-react-native-elements)
+* it has an official documentation https://formulaik-core.github.io/documentation/
+
+Please keep in mind it is still in beta. Any recommendations are appreciated. If you feel like implementing the Swift, Android, Flutter engines, please get in touch with.
